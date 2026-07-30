@@ -1,13 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./editorial-system.css";
+import "./refinement.css";
 
 const siteUrl = "https://eirik.co.uk";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Eirik Otis — Product, AI Systems & Financial Infrastructure",
+  title: "Eirik Otis — Product, Commercial Execution & Technical Systems",
   description:
-    "Eirik Otis builds and leads technical products across AI systems, financial infrastructure, analytics and new ventures.",
+    "Eirik Otis turns complex ideas into products, technical systems and commercial momentum.",
   keywords: [
     "Eirik Otis",
     "product leadership",
@@ -22,15 +24,17 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Eirik Otis",
-    title: "Eirik Otis — Product, AI Systems & Financial Infrastructure",
+    title: "Eirik Otis — Product, Commercial Execution & Technical Systems",
     description:
-      "Technical product leadership across AI systems, financial infrastructure, analytics and new ventures.",
+      "Product ownership, commercial execution and technical delivery for complex early-stage products.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Eirik Otis — Product, Commercial Execution and Technical Systems" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eirik Otis — Product, AI Systems & Financial Infrastructure",
+    title: "Eirik Otis — Product, Commercial Execution & Technical Systems",
     description:
-      "Technical product leadership across AI systems, financial infrastructure, analytics and new ventures.",
+      "Product ownership, commercial execution and technical delivery for complex early-stage products.",
+    images: ["/og.png"],
   },
   icons: { icon: "/icon.svg" },
 };
@@ -38,8 +42,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark",
-  themeColor: "#080808",
+  colorScheme: "light",
+  themeColor: "#f4f1ea",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

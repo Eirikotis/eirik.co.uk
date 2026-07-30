@@ -5,6 +5,7 @@
 /.next
 /.next-dev
 /out
+/dist
 
 # local files
 .DS_Store
