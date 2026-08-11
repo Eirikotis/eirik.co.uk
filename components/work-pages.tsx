@@ -55,14 +55,27 @@ export function BittensorPage() {
 function KpmgProcess() {
   return (
     <figure className="kpmg-process" aria-labelledby="kpmg-process-title">
-      <figcaption id="kpmg-process-title">How the work operated</figcaption>
-      <div>
+      <figcaption>
+        <Eyebrow>Financial operating-system map</Eyebrow>
+        <h2 id="kpmg-process-title">Assessing how financial businesses operate</h2>
+        <p>Connecting commercial context, operating processes, technology and financial information to identify risk and support better decisions.</p>
+      </figcaption>
+      <div className="kpmg-process-flow">
         {kpmg.process.map((stage, index) => (
-          <div className="kpmg-process-stage" key={stage.label}>
+          <article className="kpmg-process-stage" key={stage.label}>
             <span>0{index + 1}</span>
-            <div><strong>{stage.label}</strong><p>{stage.items}</p></div>
-          </div>
+            <strong>{stage.label}</strong>
+            <p>{stage.items}</p>
+          </article>
         ))}
+      </div>
+      <div className="kpmg-risk-layer">
+        <strong>Operating risk</strong>
+        <div>{kpmg.operatingRisk.map((risk) => <span key={risk}>{risk}</span>)}</div>
+      </div>
+      <div className="kpmg-process-outcome">
+        <span>Outcome</span>
+        <div><strong>Decision support</strong><p>{kpmg.processOutcome}</p></div>
       </div>
     </figure>
   );

@@ -92,10 +92,14 @@ export const kpmg = {
   systems: ["Process walkthroughs", "Financial processes", "Operational workflows", "Technology-enabled controls", "Data flows", "Reconciliations", "Reporting", "Exception management", "Risk and remediation"],
   stakeholders: ["Finance", "Operations", "Risk", "Technology", "Management"],
   process: [
-    { label: "Financial institutions", items: "Banks · Hedge funds · Asset managers · Private equity · Pensions · Fintech" },
-    { label: "Systems and processes", items: "Finance · Operations · Technology · Data · Reconciliations · Reporting · Controls" },
-    { label: "Work", items: "Walkthroughs · Evidence analysis · Testing · Exceptions · Risk · Findings · Remediation" },
+    { label: "Clients & markets", items: "Products, counterparties and market context" },
+    { label: "Commercial model", items: "Revenue, costs, incentives and dependencies" },
+    { label: "Operations", items: "Ownership, workflows, handoffs and exceptions" },
+    { label: "Systems & data", items: "Platforms, data flows and reconciliations" },
+    { label: "Financial reporting", items: "Outputs, evidence and management information" },
   ],
+  operatingRisk: ["Failure modes", "Control gaps", "Data integrity", "Financial exposure"],
+  processOutcome: "Prioritised findings, remediation and clearer accountability",
 } as const;
 
 export const bittensorWorkstreams = [
