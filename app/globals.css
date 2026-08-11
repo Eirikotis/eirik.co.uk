@@ -119,13 +119,46 @@ button, input, textarea, select { font: inherit; }
 .research-metrics span + span { border-left: 1px solid var(--rule); }
 .research-metrics strong { color: var(--ink); font-size: 18px; font-weight: 500; }
 
-.screenshot-section { padding-block: var(--space-section); border-top: 1px solid var(--rule); }
-.screenshot-section > header { display: grid; grid-template-columns: .55fr 1fr; gap: 48px; margin-bottom: 54px; }
-.screenshot-section h2 { font-size: clamp(32px, 4vw, 50px); font-weight: 500; letter-spacing: -.04em; }
-.screenshot-list { display: grid; gap: 64px; }
-.screenshot-list figure { margin: 0; }
-.screenshot-list img { width: 100%; border: 1px solid var(--rule); background: #070908; }
-.screenshot-list figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; }
+.dusd-product-proof { padding-bottom: var(--space-section); }
+.dusd-live-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 18px; border-top: 1px solid var(--rule); }
+.dusd-live-button { display: inline-flex; align-items: center; gap: 10px; padding: 10px 13px; border: 1px solid var(--rule-strong); font-size: 13px; }
+.dusd-live-button > span { width: 7px; height: 7px; border-radius: 50%; background: #3e7668; }
+.dusd-live-button b { color: var(--accent); font-weight: 400; }
+.dusd-live-button:hover { border-color: var(--accent); }
+.dusd-proof-grid { display: grid; grid-template-columns: 1fr 1fr; border-block: 1px solid var(--rule); }
+.dusd-proof-grid > div { padding-block: clamp(28px, 4vw, 44px); }
+.dusd-proof-grid > div + div { padding-left: clamp(28px, 5vw, 64px); border-left: 1px solid var(--rule); }
+.dusd-proof-grid strong { display: block; max-width: 18ch; margin-top: 14px; font-size: clamp(30px, 4vw, 48px); font-weight: 500; letter-spacing: -.045em; line-height: 1.06; }
+.dusd-proof-grid p { margin-top: 10px; color: var(--muted); }
+.dusd-data-section { padding-block: var(--space-section); border-top: 1px solid var(--rule); }
+.dusd-data-heading { display: grid; grid-template-columns: .55fr 1fr; gap: 48px; margin-bottom: 58px; }
+.dusd-data-heading h2 { max-width: 15ch; font-size: clamp(32px, 4vw, 50px); font-weight: 500; letter-spacing: -.04em; line-height: 1.08; }
+.dusd-data-heading > div > p { max-width: 56ch; margin-top: 18px; color: var(--muted); }
+.dusd-chart-grid { display: grid; grid-template-columns: .95fr 1.05fr; border-block: 1px solid var(--rule); }
+.dusd-chart-grid figure { min-width: 0; padding-block: clamp(36px, 5vw, 58px); }
+.dusd-chart-grid figure + figure { padding-left: clamp(30px, 5vw, 64px); border-left: 1px solid var(--rule); }
+.dusd-chart-grid figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 42px; }
+.dusd-chart-grid h3 { font-size: 19px; font-weight: 500; }
+.dusd-chart-grid figcaption span, .dusd-bar-times, .dusd-y-axis { color: var(--faint); font: 10px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.dusd-supply-bar { display: flex; height: 36px; margin-top: 54px; border: 1px solid var(--rule); }
+.dusd-supply-bar i { width: 34.17%; background: #aa6038; }
+.dusd-supply-bar b { width: 65.83%; background: rgba(250, 248, 242, .55); }
+.dusd-supply-labels { display: grid; grid-template-columns: 34.17fr 65.83fr; margin-top: 16px; }
+.dusd-supply-labels p + p { padding-left: 18px; }
+.dusd-supply-labels strong { display: block; font-size: 17px; font-weight: 500; }
+.dusd-supply-labels span { color: var(--muted); font-size: 12px; }
+.dusd-bars-wrap { display: grid; grid-template-columns: 48px 1fr; gap: 12px; }
+.dusd-y-axis { display: flex; min-height: 180px; flex-direction: column; justify-content: space-between; }
+.dusd-bars { display: grid; min-height: 180px; grid-template-columns: repeat(8, 1fr); gap: clamp(5px, 1vw, 11px); align-items: end; padding-inline: 8px; border-bottom: 1px solid var(--rule); background: repeating-linear-gradient(to bottom, var(--rule) 0 1px, transparent 1px 60px); }
+.dusd-bars i { display: block; min-height: 7px; background: #aa6038; }
+.dusd-bar-times { display: flex; justify-content: space-between; margin: 12px 0 0 60px; }
+.dusd-mechanism { padding-top: clamp(52px, 7vw, 82px); }
+.dusd-mechanism > div { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 28px; border-block: 1px solid var(--rule); }
+.dusd-mechanism article { padding: 24px 20px 28px 0; }
+.dusd-mechanism article + article { padding-left: 20px; border-left: 1px solid var(--rule); }
+.dusd-mechanism article > span { color: var(--faint); font: 10px/1 var(--mono); }
+.dusd-mechanism article strong { display: block; margin-top: 18px; font-weight: 500; }
+.dusd-mechanism article p { margin-top: 7px; color: var(--muted); font-size: 13px; }
 .methods-strip { padding-block: 44px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .methods-strip > div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .methods-strip span { padding: 7px 10px; border: 1px solid var(--rule); color: var(--muted); font-size: 12px; }
@@ -186,7 +219,7 @@ button, input, textarea, select { font: inherit; }
   .home-intro { padding-block: 68px 60px; }
   .home-intro h1 { font-size: 48px; }
   .intro-lede { font-size: 27px; }
-  .index-heading, .home-about, .contact, .work-heading, .content-section, .workstream, .screenshot-section > header, .profile-header { grid-template-columns: 1fr; gap: 26px; }
+  .index-heading, .home-about, .contact, .work-heading, .content-section, .workstream, .dusd-data-heading, .profile-header { grid-template-columns: 1fr; gap: 26px; }
   .work-row { grid-template-columns: 30px 1fr; gap: 18px; padding-block: 34px; }
   .row-copy { grid-column: 2; }
   .home-about .text-link, .contact > p, .contact-links, .profile-header > p { grid-column: 1; }
@@ -208,6 +241,14 @@ button, input, textarea, select { font: inherit; }
   .editorial-list li { width: 50%; }
   .kpmg-groups { grid-template-columns: 1fr; }
   .kpmg-process { margin-left: 0; }
+  .dusd-proof-grid, .dusd-chart-grid { grid-template-columns: 1fr; }
+  .dusd-proof-grid > div + div { padding-left: 0; border-top: 1px solid var(--rule); border-left: 0; }
+  .dusd-chart-grid figure + figure { padding-left: 0; border-top: 1px solid var(--rule); border-left: 0; }
+  .dusd-mechanism > div { grid-template-columns: 1fr 1fr; }
+  .dusd-mechanism article:nth-child(3) { padding-left: 0; border-top: 1px solid var(--rule); border-left: 0; }
+  .dusd-mechanism article:nth-child(4) { border-top: 1px solid var(--rule); }
+  .dusd-supply-labels { grid-template-columns: 1fr; gap: 14px; }
+  .dusd-supply-labels p + p { padding-left: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

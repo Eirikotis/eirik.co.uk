@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
-import { BulletList, ContentSection, Eyebrow, NextWork, PageShell, TextLink, WorkHeader } from "@/components/editorial";
-import { bittensorWorkstreams, dusd, dusdScreenshots, kpmg, oneClickLabs, qualification } from "@/content/portfolio";
+import { BulletList, ContentSection, Eyebrow, NextWork, PageShell, WorkHeader } from "@/components/editorial";
+import { bittensorWorkstreams, dusd, kpmg, oneClickLabs, qualification } from "@/content/portfolio";
 
 function VoidArchitecture() {
   return (
@@ -97,12 +96,44 @@ export function KpmgPage() {
 }
 
 export function DusdPage() {
+  const recentBurns = [10, 11, 9, 36, 100, 29, 9, 10];
+
   return (
     <PageShell>
       <main id="main" className="work-page">
         <WorkHeader title={dusd.title} role={dusd.role} period={dusd.period} description={dusd.description} />
-        <ContentSection label="Overview" title="Shipping and operating a live product"><div className="prose">{dusd.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<TextLink href={dusd.liveUrl} external>Visit dusd.fun</TextLink></div></ContentSection>
-        <section className="screenshot-section content-width" aria-labelledby="screenshots-title"><header><Eyebrow>Selected product evidence</Eyebrow><h2 id="screenshots-title">Live interfaces</h2></header><div className="screenshot-list">{dusdScreenshots.map((image) => <figure key={image.src}><Image src={image.src} width={image.width} height={image.height} alt={image.alt} sizes="(max-width: 900px) 100vw, 1100px" /><figcaption>{image.caption}</figcaption></figure>)}</div></section>
+        <section className="dusd-product-proof content-width" aria-label="Live product evidence">
+          <div className="dusd-live-row"><Eyebrow>Live product</Eyebrow><a className="dusd-live-button" href={dusd.liveUrl} target="_blank" rel="noreferrer"><span aria-hidden="true" />Live now <b aria-hidden="true">↗</b></a></div>
+          <div className="dusd-proof-grid">
+            <div><Eyebrow>Audience</Eyebrow><strong>≈300 unique daily visitors</strong><p>And climbing.</p></div>
+            <div><Eyebrow>Status</Eyebrow><strong>Live and actively operated</strong><p>Designed, built and maintained independently.</p></div>
+          </div>
+        </section>
+        <ContentSection label="Overview" title="Shipping and operating a live product"><div className="prose">{dusd.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></ContentSection>
+        <section className="dusd-data-section content-width" aria-labelledby="dusd-evidence-title">
+          <header className="dusd-data-heading"><Eyebrow>Selected product evidence</Eyebrow><div><h2 id="dusd-evidence-title">A product defined by observable data</h2><p>Editorial views of the underlying product system, rather than reproductions of its interface.</p></div></header>
+          <div className="dusd-chart-grid">
+            <figure className="dusd-supply-figure">
+              <figcaption><h3>Supply contraction</h3><span>Genesis → 11 Aug 2026</span></figcaption>
+              <div className="dusd-supply-bar" role="img" aria-label="34.17 percent of genesis supply burned and 65.83 percent circulating"><i /><b /></div>
+              <div className="dusd-supply-labels"><p><strong>341.7M burned</strong><span>34.17% of genesis</span></p><p><strong>658.3M circulating</strong><span>65.83% remaining</span></p></div>
+            </figure>
+            <figure className="dusd-burn-figure">
+              <figcaption><h3>Recent burn cadence</h3><span>DUSD per event</span></figcaption>
+              <div className="dusd-bars-wrap" role="img" aria-label="Eight recent burns ranging from approximately 7,700 to 82,800 DUSD">
+                <div className="dusd-y-axis"><span>82.8K</span><span>41.4K</span><span>0</span></div>
+                <div className="dusd-bars">{recentBurns.map((height, index) => <i key={`${height}-${index}`} style={{ height: `${height}%` }} />)}</div>
+              </div>
+              <div className="dusd-bar-times"><span>Earlier</span><span>Latest</span></div>
+            </figure>
+          </div>
+          <div className="dusd-mechanism"><Eyebrow>How it works</Eyebrow><div>{[
+            ["01", "Trading activity", "Creator fees accumulate."],
+            ["02", "Automated purchase", "DUSD is acquired through Jupiter."],
+            ["03", "Permanent burn", "Acquired supply is removed."],
+            ["04", "Public evidence", "Every cycle is verifiable on Solana."],
+          ].map(([index, title, copy]) => <article key={index}><span>{index}</span><strong>{title}</strong><p>{copy}</p></article>)}</div></div>
+        </section>
         <ContentSection label="What I worked on" title="Independent product ownership"><BulletList items={dusd.workedOn} /></ContentSection>
         <ContentSection label="Outcome / current status" title="Live and maintained"><div className="prose"><p>{dusd.status}</p></div></ContentSection>
         <NextWork href="/work/one-click-labs/" label="One Click Labs" />

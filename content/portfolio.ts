@@ -170,9 +170,3 @@ export const oneClickLabs = {
   workedOn: ["Founder-facing product definition and iteration", "DeFiLlama and protocol API integrations", "Python and SQL data pipelines", "Data cleaning, normalisation and validation", "Portfolio optimisation and capital allocation", "Monte Carlo, volatility and risk analysis", "Backtesting and live strategy monitoring"],
   status: "The work contributed to the company’s broader evolution toward what now operates as Yield Network. I do not claim to have built or currently operate that later product.",
 } as const;
-
-export const dusdScreenshots = [
-  { src: "/dusd/burn-telemetry.png", width: 2140, height: 1019, alt: "dusd.fun dashboard showing live burn telemetry, supply distribution and burn momentum.", caption: "Live supply, burn and market telemetry." },
-  { src: "/dusd/monetary-supply.png", width: 2314, height: 1187, alt: "dusd.fun chart comparing supply dynamics across DUSD, Bitcoin, gold and US M2.", caption: "Historical supply and monetary comparison tools." },
-  { src: "/dusd/monetary-scale.png", width: 2178, height: 1204, alt: "dusd.fun interface showing monetary-scale comparisons and a position calculator.", caption: "Interactive scale and supply scenarios, presented as comparisons rather than forecasts." },
-] as const;
