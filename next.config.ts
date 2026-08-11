@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
   poweredByHeader: false,
   reactStrictMode: true,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

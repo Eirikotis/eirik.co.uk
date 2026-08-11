@@ -1,78 +1,32 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects } from "@/content/site-content";
-import { AutoResearchCaseStudy } from "@/components/autoresearch-case-study";
-import { DusdCaseStudy } from "@/components/dusd-case-study";
-import { OneClickLabsCaseStudy } from "@/components/one-click-labs-case-study";
-import { VoidCaseStudy } from "@/components/void-case-study";
+import { BittensorPage, DusdPage, LegacyWorkPage, OneClickLabsPage } from "@/components/work-pages";
+
+const slugs = ["bittensor", "dusd", "one-click-labs", "void", "bittensor-autoresearch"] as const;
+
+const pageMetadata: Record<(typeof slugs)[number], { title: string; description: string }> = {
+  bittensor: { title: "Bittensor", description: "Product, research and strategy across decentralised AI markets." },
+  dusd: { title: "DUSD.fun", description: "A live Solana market-data and supply analytics product." },
+  "one-click-labs": { title: "One Click Labs", description: "Product and quantitative work across DeFi investment infrastructure." },
+  void: { title: "VOID / Bittensor", description: "VOID now sits within the consolidated Bittensor body of work." },
+  "bittensor-autoresearch": { title: "AutoResearch / Bittensor", description: "AutoResearch now sits within the consolidated Bittensor body of work." },
+};
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
-  return project
-    ? { title: `${project.name} — Eirik Otis`, description: project.description }
-    : {};
+  return slug in pageMetadata ? pageMetadata[slug as keyof typeof pageMetadata] : {};
 }
 
-export default async function WorkPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function WorkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (slug === "void") {
-    return <VoidCaseStudy />;
-  }
-  if (slug === "dusd") {
-    return <DusdCaseStudy />;
-  }
-  if (slug === "one-click-labs") {
-    return <OneClickLabsCaseStudy />;
-  }
-  if (slug === "bittensor-autoresearch") {
-    return <AutoResearchCaseStudy />;
-  }
-  const project = getProject(slug);
-  if (!project) notFound();
-
-  return (
-    <main className="work-page">
-      <header className="work-page-nav">
-        <Link href="/#work">← Selected work</Link>
-        <Link href="/">Eirik Otis</Link>
-      </header>
-      <article className="work-overview">
-        <div className="work-overview-meta">
-          <span>{project.index}</span>
-          <p>{project.category}</p>
-        </div>
-        <h1>{project.name}</h1>
-        <p className="work-overview-role">{project.role}</p>
-        <p className="work-overview-lede">{project.description}</p>
-        <div className="work-overview-content">
-          <div>
-            <span className="work-overview-label">OWNERSHIP</span>
-            <ul>{project.detail.map((item) => <li key={item}>{item}</li>)}</ul>
-          </div>
-          <div>
-            <span className="work-overview-label">CAPABILITIES</span>
-            <div className="work-overview-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-          </div>
-        </div>
-        <footer className="work-overview-footer">
-          <p>Project overview</p>
-          <Link href="/#contact">Start a conversation ↗</Link>
-        </footer>
-      </article>
-    </main>
-  );
+  if (slug === "bittensor") return <BittensorPage />;
+  if (slug === "dusd") return <DusdPage />;
+  if (slug === "one-click-labs") return <OneClickLabsPage />;
+  if (slug === "void") return <LegacyWorkPage destination="/work/bittensor/#void" label="VOID" />;
+  if (slug === "bittensor-autoresearch") return <LegacyWorkPage destination="/work/bittensor/#autoresearch" label="Bittensor AutoResearch" />;
+  notFound();
 }

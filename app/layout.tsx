@@ -1,15 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import "./editorial-system.css";
-import "./refinement.css";
 
 const siteUrl = "https://eirik.co.uk";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Eirik Otis — Product, Commercial Execution & Technical Systems",
+  title: {
+    default: "Eirik Otis — Product, technical and commercial work",
+    template: "%s — Eirik Otis",
+  },
   description:
-    "Eirik Otis turns complex ideas into products, technical systems and commercial momentum.",
+    "Selected product, technical and commercial work across AI infrastructure, financial systems and markets.",
   keywords: [
     "Eirik Otis",
     "product leadership",
@@ -24,16 +25,16 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Eirik Otis",
-    title: "Eirik Otis — Product, Commercial Execution & Technical Systems",
+    title: "Eirik Otis — Product, technical and commercial work",
     description:
-      "Product ownership, commercial execution and technical delivery for complex early-stage products.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Eirik Otis — Product, Commercial Execution and Technical Systems" }],
+      "Selected work across AI infrastructure, financial systems and markets.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Eirik Otis — selected work" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eirik Otis — Product, Commercial Execution & Technical Systems",
+    title: "Eirik Otis — Product, technical and commercial work",
     description:
-      "Product ownership, commercial execution and technical delivery for complex early-stage products.",
+      "Selected work across AI infrastructure, financial systems and markets.",
     images: ["/og.png"],
   },
   icons: { icon: "/icon.svg" },
@@ -48,7 +49,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className="antialiased">{children}</body>
     </html>
   );
