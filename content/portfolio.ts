@@ -148,13 +148,21 @@ export const dusd = {
   title: "dusd.fun",
   period: "2026",
   role: "Independent product",
-  description: "A live market-data and supply analytics product for a community-run Solana token.",
+  description: "A live Solana analytics product and production creator-revenue buyback-and-burn system.",
   overview: [
-    "I independently designed, built and operate dusd.fun. The product turns on-chain burn activity, supply changes and market data into a legible public interface.",
-    "The emphasis is on observable data rather than promotional claims: live telemetry, historical supply and burn analytics, transaction evidence, monetary comparisons and interactive tools. The product reaches around 300 unique visitors per day.",
+    "I independently designed, built and operate dusd.fun: the public analytics product and the backend infrastructure that converts creator revenue into verifiable DUSD purchases and burns.",
+    "A Node.js and TypeScript service runs on a fixed systemd schedule. It inspects Pump creator rewards, preserves an operational SOL reserve, constructs a fresh Jupiter route, validates and simulates the versioned transaction, signs and confirms the purchase, then burns the complete verified DUSD balance with SPL Token burnChecked. The public product turns those on-chain events into live telemetry, historical supply analysis and transaction evidence for around 300 unique visitors per day.",
   ],
-  workedOn: ["Product strategy and information architecture", "Next.js and TypeScript implementation", "API and on-chain data integration", "Historical supply and burn analytics", "Interactive data visualisation", "Deployment, VPS/Linux operations and automation", "Ongoing product ownership"],
-  status: "Live and actively operated. dusd.fun is my product; I did not found the underlying token or community.",
+  technicalControls: [
+    "Decoded validation of Jupiter versioned transactions: mints, accounts, signers, writable permissions, programs, slippage, compute budget and priority-fee ceiling",
+    "Pre-signing and signed simulation, local Ed25519 signature verification and identical-byte rebroadcasting while a blockhash remains valid",
+    "Persistent state machine, signature-first persistence, exclusive process locking and atomic state writes for deterministic crash recovery",
+    "Conservative expiry handling: a replacement is built only after the original signature is proven expired and absent from full transaction history",
+    "Hardened unprivileged systemd service with LoadCredential, restricted filesystem access and root-owned production artifacts",
+    "60 automated tests across 19 files covering transaction policy, signing, landing, recovery, persistence, secrets and deployment",
+  ],
+  workedOn: ["Product strategy and information architecture", "Next.js market-data and supply analytics", "Node.js and TypeScript Solana automation", "Pump creator-reward and Jupiter Swap integration", "Versioned-transaction validation and simulation", "SPL Token burnChecked execution", "State-machine recovery and idempotent transaction landing", "Hardened Ubuntu/systemd deployment", "Ongoing product and infrastructure ownership"],
+  status: "Live and actively operated. The analytics product and unattended burn infrastructure run in production; dusd.fun is my product, but I did not found the underlying token or community.",
   liveUrl: "https://dusd.fun",
 } as const;
 

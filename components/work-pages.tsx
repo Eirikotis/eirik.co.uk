@@ -128,13 +128,17 @@ export function DusdPage() {
             </figure>
           </div>
           <div className="dusd-mechanism"><Eyebrow>How it works</Eyebrow><div>{[
-            ["01", "Trading activity", "Creator fees accumulate."],
-            ["02", "Automated purchase", "DUSD is acquired through Jupiter."],
-            ["03", "Permanent burn", "Acquired supply is removed."],
-            ["04", "Public evidence", "Every cycle is verifiable on Solana."],
+            ["01", "Claim & reserve", "Read Pump vault state, exclude account rent, claim above threshold and preserve a 0.05 SOL floor plus transaction fees."],
+            ["02", "Validate route", "Request a fresh Jupiter route, decode the versioned transaction and enforce mint, account, signer, program, slippage and fee policy."],
+            ["03", "Sign & land", "Simulate, finalize and sign once; verify Ed25519 locally, then rebroadcast identical bytes until confirmation or definitive expiry."],
+            ["04", "Burn & persist", "Verify the token account, burnChecked the complete DUSD balance and atomically persist signatures, supply data and pipeline state."],
           ].map(([index, title, copy]) => <article key={index}><span>{index}</span><strong>{title}</strong><p>{copy}</p></article>)}</div></div>
         </section>
-        <ContentSection label="What I worked on" title="Independent product ownership"><BulletList items={dusd.workedOn} /></ContentSection>
+        <ContentSection label="Production engineering" title="Designed for unsafe and ambiguous states">
+          <div className="prose"><p>The service treats route payloads, RPC responses and transaction status as untrusted inputs. It validates the complete execution policy before signing and stops for review when landing status cannot be proven.</p><p>Crash recovery is driven by an explicit persisted state machine rather than inference from process exit codes. Confirmed stages are never repeated; unknown transactions are never guessed to have failed.</p></div>
+          <div className="dusd-technical-list"><BulletList items={dusd.technicalControls} /></div>
+        </ContentSection>
+        <ContentSection label="What I worked on" title="Product, execution and infrastructure"><BulletList items={dusd.workedOn} /></ContentSection>
         <ContentSection label="Outcome / current status" title="Live and maintained"><div className="prose"><p>{dusd.status}</p></div></ContentSection>
         <NextWork href="/work/one-click-labs/" label="One Click Labs" />
       </main>
