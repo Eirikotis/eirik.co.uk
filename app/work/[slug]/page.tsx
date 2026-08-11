@@ -5,9 +5,9 @@ import { BittensorPage, DusdPage, KpmgPage, LegacyWorkPage, OneClickLabsPage } f
 const slugs = ["bittensor", "kpmg", "dusd", "one-click-labs", "void", "bittensor-autoresearch"] as const;
 
 const pageMetadata: Record<(typeof slugs)[number], { title: string; description: string }> = {
-  bittensor: { title: "Bittensor", description: "Product, research and strategy across decentralised AI markets." },
+  bittensor: { title: "Bittensor", description: "Professional product, market strategy and research work across decentralised AI markets." },
   kpmg: { title: "KPMG UK", description: "Financial services, systems and client delivery across complex regulated institutions." },
-  dusd: { title: "DUSD.fun", description: "A live Solana market-data and supply analytics product." },
+  dusd: { title: "dusd.fun", description: "A live Solana market-data and supply analytics product reaching around 300 unique daily visitors." },
   "one-click-labs": { title: "One Click Labs", description: "Product and quantitative work across DeFi investment infrastructure." },
   void: { title: "VOID / Bittensor", description: "VOID now sits within the consolidated Bittensor body of work." },
   "bittensor-autoresearch": { title: "AutoResearch / Bittensor", description: "AutoResearch now sits within the consolidated Bittensor body of work." },

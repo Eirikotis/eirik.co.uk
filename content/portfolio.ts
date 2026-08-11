@@ -10,7 +10,7 @@ export const primaryWork = [
   {
     slug: "bittensor",
     name: "Bittensor",
-    period: "2025–26",
+    period: "2025–2026",
     summary: "Product, market strategy and research across decentralised AI.",
     detail: "Credit infrastructure, quantitative market research, compute and inference markets, subnet economics, partnerships and product strategy.",
   },
@@ -23,10 +23,10 @@ export const primaryWork = [
   },
   {
     slug: "dusd",
-    name: "DUSD.fun",
+    name: "dusd.fun",
     period: "2026",
     summary: "A live Solana market-data and supply analytics product.",
-    detail: "Product design, on-chain data, web development, automation and ongoing public product operations.",
+    detail: "Product design, on-chain data, web development, automation and ongoing public product operations, reaching around 300 unique daily visitors.",
   },
   {
     slug: "one-click-labs",
@@ -44,6 +44,13 @@ export const experience = [
     period: "Sep 2024 – Jul 2026",
     description: "Owned client workstreams across regulated financial-services engagements, including process walkthroughs, data flows, reconciliations, controls, operational risk and technology-enabled workflows.",
     href: "/work/kpmg/",
+  },
+  {
+    organisation: "Bittensor ecosystem",
+    role: "Independent product, market strategy and research",
+    period: "2025–2026",
+    description: "Led serious independent and venture-backed work across decentralised AI markets, including credit infrastructure, quantitative research systems, compute and inference markets, partnerships, commercial models and ecosystem strategy. This work was within the Bittensor ecosystem, not employment by Bittensor or Opentensor.",
+    href: "/work/bittensor/",
   },
   {
     organisation: "One Click Labs",
@@ -138,16 +145,16 @@ export const bittensorWorkstreams = [
 ] as const;
 
 export const dusd = {
-  title: "DUSD.fun",
+  title: "dusd.fun",
   period: "2026",
   role: "Independent product",
   description: "A live market-data and supply analytics product for a community-run Solana token.",
   overview: [
-    "I independently designed, built and operate DUSD.fun. The product turns on-chain burn activity, supply changes and market data into a legible public interface.",
-    "The emphasis is on observable data rather than promotional claims: live telemetry, historical supply and burn analytics, transaction evidence, monetary comparisons and interactive tools.",
+    "I independently designed, built and operate dusd.fun. The product turns on-chain burn activity, supply changes and market data into a legible public interface.",
+    "The emphasis is on observable data rather than promotional claims: live telemetry, historical supply and burn analytics, transaction evidence, monetary comparisons and interactive tools. The product reaches around 300 unique visitors per day.",
   ],
   workedOn: ["Product strategy and information architecture", "Next.js and TypeScript implementation", "API and on-chain data integration", "Historical supply and burn analytics", "Interactive data visualisation", "Deployment, VPS/Linux operations and automation", "Ongoing product ownership"],
-  status: "Live and actively operated. DUSD.fun is my product; I did not found the underlying token or community.",
+  status: "Live and actively operated. dusd.fun is my product; I did not found the underlying token or community.",
   liveUrl: "https://dusd.fun",
 } as const;
 
@@ -165,7 +172,7 @@ export const oneClickLabs = {
 } as const;
 
 export const dusdScreenshots = [
-  { src: "/dusd/burn-telemetry.png", width: 2140, height: 1019, alt: "DUSD.fun dashboard showing live burn telemetry, supply distribution and burn momentum.", caption: "Live supply, burn and market telemetry." },
-  { src: "/dusd/monetary-supply.png", width: 2314, height: 1187, alt: "DUSD.fun chart comparing supply dynamics across DUSD, Bitcoin, gold and US M2.", caption: "Historical supply and monetary comparison tools." },
-  { src: "/dusd/monetary-scale.png", width: 2178, height: 1204, alt: "DUSD.fun interface showing monetary-scale comparisons and a position calculator.", caption: "Interactive scale and supply scenarios, presented as comparisons rather than forecasts." },
+  { src: "/dusd/burn-telemetry.png", width: 2140, height: 1019, alt: "dusd.fun dashboard showing live burn telemetry, supply distribution and burn momentum.", caption: "Live supply, burn and market telemetry." },
+  { src: "/dusd/monetary-supply.png", width: 2314, height: 1187, alt: "dusd.fun chart comparing supply dynamics across DUSD, Bitcoin, gold and US M2.", caption: "Historical supply and monetary comparison tools." },
+  { src: "/dusd/monetary-scale.png", width: 2178, height: 1204, alt: "dusd.fun interface showing monetary-scale comparisons and a position calculator.", caption: "Interactive scale and supply scenarios, presented as comparisons rather than forecasts." },
 ] as const;

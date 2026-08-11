@@ -34,7 +34,7 @@ export function BittensorPage() {
   return (
     <PageShell>
       <main id="main" className="work-page">
-        <WorkHeader title="Bittensor" role="Product, market strategy and research" period="2025–26" description="Sustained work across decentralised AI markets, spanning credit infrastructure, quantitative research, compute and inference, ecosystem partnerships, and market design." />
+        <WorkHeader title="Bittensor" role="Product, market strategy and research" period="2025–2026" description="Sustained professional work across decentralised AI markets, spanning credit infrastructure, quantitative research, compute and inference, ecosystem partnerships, and market design." />
         <ContentSection label="Overview" title="One ecosystem, several workstreams">
           <div className="prose"><p>Bittensor is a decentralised AI network made up of specialist markets for compute, inference, model intelligence, evaluation and other machine-learning services.</p><p>My work in the ecosystem has spanned financial infrastructure, quantitative market research, compute markets, product strategy and incentive design. I have worked independently and through related ventures; I have not been employed by Bittensor or Opentensor.</p></div>
         </ContentSection>
@@ -90,7 +90,7 @@ export function KpmgPage() {
         <ContentSection label="Professional qualification" title={qualification.name}>
           <p className="qualification-line">{qualification.status}</p>
         </ContentSection>
-        <NextWork href="/work/dusd/" label="DUSD.fun" />
+        <NextWork href="/work/dusd/" label="dusd.fun" />
       </main>
     </PageShell>
   );
@@ -101,7 +101,7 @@ export function DusdPage() {
     <PageShell>
       <main id="main" className="work-page">
         <WorkHeader title={dusd.title} role={dusd.role} period={dusd.period} description={dusd.description} />
-        <ContentSection label="Overview" title="Shipping and operating a live product"><div className="prose">{dusd.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<TextLink href={dusd.liveUrl} external>Visit DUSD.fun</TextLink></div></ContentSection>
+        <ContentSection label="Overview" title="Shipping and operating a live product"><div className="prose">{dusd.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<TextLink href={dusd.liveUrl} external>Visit dusd.fun</TextLink></div></ContentSection>
         <section className="screenshot-section content-width" aria-labelledby="screenshots-title"><header><Eyebrow>Selected product evidence</Eyebrow><h2 id="screenshots-title">Live interfaces</h2></header><div className="screenshot-list">{dusdScreenshots.map((image) => <figure key={image.src}><Image src={image.src} width={image.width} height={image.height} alt={image.alt} sizes="(max-width: 900px) 100vw, 1100px" /><figcaption>{image.caption}</figcaption></figure>)}</div></section>
         <ContentSection label="What I worked on" title="Independent product ownership"><BulletList items={dusd.workedOn} /></ContentSection>
         <ContentSection label="Outcome / current status" title="Live and maintained"><div className="prose"><p>{dusd.status}</p></div></ContentSection>
