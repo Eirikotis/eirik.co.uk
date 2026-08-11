@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BulletList, ContentSection, Eyebrow, NextWork, PageShell, TextLink, WorkHeader } from "@/components/editorial";
-import { bittensorWorkstreams, dusd, dusdScreenshots, oneClickLabs } from "@/content/portfolio";
+import { bittensorWorkstreams, dusd, dusdScreenshots, kpmg, oneClickLabs, qualification } from "@/content/portfolio";
 
 function VoidArchitecture() {
   return (
@@ -34,7 +34,7 @@ export function BittensorPage() {
   return (
     <PageShell>
       <main id="main" className="work-page">
-        <WorkHeader title="Bittensor" role="Product, research and strategy" period="2025–26" description="Sustained work across decentralised AI markets, spanning credit infrastructure, quantitative research, compute and inference, and market design." />
+        <WorkHeader title="Bittensor" role="Product, market strategy and research" period="2025–26" description="Sustained work across decentralised AI markets, spanning credit infrastructure, quantitative research, compute and inference, ecosystem partnerships, and market design." />
         <ContentSection label="Overview" title="One ecosystem, several workstreams">
           <div className="prose"><p>Bittensor is a decentralised AI network made up of specialist markets for compute, inference, model intelligence, evaluation and other machine-learning services.</p><p>My work in the ecosystem has spanned financial infrastructure, quantitative market research, compute markets, product strategy and incentive design. I have worked independently and through related ventures; I have not been employed by Bittensor or Opentensor.</p></div>
         </ContentSection>
@@ -46,6 +46,49 @@ export function BittensorPage() {
         ))}
         <ContentSection label="Current status" title="Evidence before deployment">
           <div className="prose"><p>The work produced functional infrastructure, research systems and product decisions. It did not produce a completed VOID fundraise, a scaled institutional launch or proof of profitable AutoResearch alpha.</p><p>The common thread was treating ecosystem change, liquidity and incentive design as product constraints rather than background assumptions.</p></div>
+        </ContentSection>
+        <NextWork href="/work/kpmg/" label="KPMG UK" />
+      </main>
+    </PageShell>
+  );
+}
+
+function KpmgProcess() {
+  return (
+    <figure className="kpmg-process" aria-labelledby="kpmg-process-title">
+      <figcaption id="kpmg-process-title">How the work operated</figcaption>
+      <div>
+        {kpmg.process.map((stage, index) => (
+          <div className="kpmg-process-stage" key={stage.label}>
+            <span>0{index + 1}</span>
+            <div><strong>{stage.label}</strong><p>{stage.items}</p></div>
+          </div>
+        ))}
+      </div>
+    </figure>
+  );
+}
+
+export function KpmgPage() {
+  return (
+    <PageShell>
+      <main id="main" className="work-page">
+        <WorkHeader title={kpmg.title} role={kpmg.role} period={kpmg.period} description={kpmg.description} />
+        <ContentSection label="Overview" title="Inside financial institutions">
+          <div className="prose">{kpmg.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+        </ContentSection>
+        <ContentSection label="Client environments" title="Breadth across financial services">
+          <ul className="editorial-list" aria-label="Financial-services client environments">{kpmg.environments.map((environment) => <li key={environment}>{environment}</li>)}</ul>
+        </ContentSection>
+        <ContentSection label="What I worked on" title="Processes, systems and evidence">
+          <div className="kpmg-groups">
+            <div><Eyebrow>Financial & operational systems</Eyebrow><BulletList items={kpmg.systems} /></div>
+            <div><Eyebrow>Stakeholders</Eyebrow><BulletList items={kpmg.stakeholders} /></div>
+          </div>
+        </ContentSection>
+        <section className="kpmg-process-section content-width"><KpmgProcess /></section>
+        <ContentSection label="Professional qualification" title={qualification.name}>
+          <p className="qualification-line">{qualification.status}</p>
         </ContentSection>
         <NextWork href="/work/dusd/" label="DUSD.fun" />
       </main>

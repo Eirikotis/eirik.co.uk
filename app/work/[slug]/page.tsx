@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { BittensorPage, DusdPage, LegacyWorkPage, OneClickLabsPage } from "@/components/work-pages";
+import { BittensorPage, DusdPage, KpmgPage, LegacyWorkPage, OneClickLabsPage } from "@/components/work-pages";
 
-const slugs = ["bittensor", "dusd", "one-click-labs", "void", "bittensor-autoresearch"] as const;
+const slugs = ["bittensor", "kpmg", "dusd", "one-click-labs", "void", "bittensor-autoresearch"] as const;
 
 const pageMetadata: Record<(typeof slugs)[number], { title: string; description: string }> = {
   bittensor: { title: "Bittensor", description: "Product, research and strategy across decentralised AI markets." },
+  kpmg: { title: "KPMG UK", description: "Financial services, systems and client delivery across complex regulated institutions." },
   dusd: { title: "DUSD.fun", description: "A live Solana market-data and supply analytics product." },
   "one-click-labs": { title: "One Click Labs", description: "Product and quantitative work across DeFi investment infrastructure." },
   void: { title: "VOID / Bittensor", description: "VOID now sits within the consolidated Bittensor body of work." },
@@ -24,6 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function WorkPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   if (slug === "bittensor") return <BittensorPage />;
+  if (slug === "kpmg") return <KpmgPage />;
   if (slug === "dusd") return <DusdPage />;
   if (slug === "one-click-labs") return <OneClickLabsPage />;
   if (slug === "void") return <LegacyWorkPage destination="/work/bittensor/#void" label="VOID" />;

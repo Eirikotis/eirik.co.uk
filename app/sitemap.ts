@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const work = ["bittensor", "dusd", "one-click-labs"].map((slug) => ({
+  const work = ["bittensor", "kpmg", "dusd", "one-click-labs"].map((slug) => ({
     url: `https://eirik.co.uk/work/${slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,

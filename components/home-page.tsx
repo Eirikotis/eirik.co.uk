@@ -11,14 +11,14 @@ export function HomePage() {
             <h1>Eirik Otis</h1>
           </div>
           <div className="intro-copy">
-            <p className="intro-lede">Product, technical and commercial work across AI infrastructure, financial systems and markets.</p>
-            <p>I work on products and systems where technology, economics and commercial execution intersect.</p>
+            <p className="intro-lede">Product, commercial and technical work across AI infrastructure, financial systems and markets.</p>
+            <p>I work across products, markets and partnerships where technology, economics and commercial execution intersect.</p>
             <div className="intro-links"><a className="text-link" href="#work">Selected work <span aria-hidden="true">↓</span></a><TextLink href={profile.linkedin} external>LinkedIn</TextLink></div>
           </div>
         </section>
 
         <section className="work-index content-width" id="work">
-          <header className="index-heading"><Eyebrow>Selected work</Eyebrow><p>Three bodies of work spanning decentralised AI, live product development and quantitative financial infrastructure.</p></header>
+          <header className="index-heading"><Eyebrow>Selected work</Eyebrow><p>Selected work across decentralised AI, financial institutions, live markets and quantitative products.</p></header>
           <div className="work-rows">
             {primaryWork.map((project, index) => (
               <article className="work-row" key={project.slug}>
@@ -45,14 +45,14 @@ export function HomePage() {
 
         <section className="home-about content-width">
           <Eyebrow>About</Eyebrow>
-          <p>My background combines institutional finance with product, quantitative research and emerging technology. Current interests include AI infrastructure, market design and financial systems.</p>
+          <p>My background spans institutional finance, product, quantitative research and commercial work in emerging technology. Current interests include AI infrastructure, market design and financial systems.</p>
           <TextLink href="/about/">More about me</TextLink>
         </section>
 
         <section className="contact content-width" id="contact">
           <Eyebrow>Contact</Eyebrow>
           <h2>Open to interesting conversations.</h2>
-          <p>I’m interested in product, strategy and technical-commercial roles around AI infrastructure, financial technology and emerging markets.</p>
+          <p>I’m interested in product, partnerships, strategy and technical-commercial roles around AI infrastructure, financial technology and emerging markets.</p>
           <div className="contact-links"><a href={`mailto:${profile.email}`}>{profile.email}</a><TextLink href={profile.linkedin} external>LinkedIn</TextLink><TextLink href={profile.github} external>GitHub</TextLink></div>
         </section>
       </main>

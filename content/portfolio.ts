@@ -11,8 +11,15 @@ export const primaryWork = [
     slug: "bittensor",
     name: "Bittensor",
     period: "2025–26",
-    summary: "Product, research and strategy across decentralised AI markets.",
-    detail: "Credit infrastructure, quantitative market research, compute and inference markets, subnet economics and product strategy.",
+    summary: "Product, market strategy and research across decentralised AI.",
+    detail: "Credit infrastructure, quantitative market research, compute and inference markets, subnet economics, partnerships and product strategy.",
+  },
+  {
+    slug: "kpmg",
+    name: "KPMG UK",
+    period: "2024–26",
+    summary: "Financial services, systems and client delivery.",
+    detail: "Work across banks, hedge funds, asset managers, private equity, pensions and large fintechs, spanning financial processes, technology, data, controls and operational risk.",
   },
   {
     slug: "dusd",
@@ -36,6 +43,7 @@ export const experience = [
     role: "Associate, Financial Services Assurance",
     period: "Sep 2024 – Jul 2026",
     description: "Owned client workstreams across regulated financial-services engagements, including process walkthroughs, data flows, reconciliations, controls, operational risk and technology-enabled workflows.",
+    href: "/work/kpmg/",
   },
   {
     organisation: "One Click Labs",
@@ -61,7 +69,26 @@ export const education = {
 
 export const qualification = {
   name: "ICAEW ACA",
-  status: "Part-qualified — 12 of 15 examinations completed",
+  status: "12 of 15 examinations completed · all passed first time",
+} as const;
+
+export const kpmg = {
+  title: "KPMG UK",
+  period: "2024–26",
+  role: "Associate, Financial Services Assurance",
+  description: "Financial services, systems and client delivery across complex regulated institutions.",
+  overview: [
+    "KPMG gave me broad exposure to how large financial institutions operate across finance, operations, technology, risk and reporting. I worked across engagements spanning banks, hedge funds, asset managers, private equity, pensions and large fintech businesses.",
+    "The work involved understanding technology-enabled financial and operational processes end to end: leading walkthroughs and client workstreams, analysing evidence and exceptions, assessing controls and data-quality issues, and translating findings into clear conclusions and remediation actions.",
+  ],
+  environments: ["Banks", "Hedge funds", "Asset managers", "Private equity", "Pensions", "Fintech"],
+  systems: ["Process walkthroughs", "Financial processes", "Operational workflows", "Technology-enabled controls", "Data flows", "Reconciliations", "Reporting", "Exception management", "Risk and remediation"],
+  stakeholders: ["Finance", "Operations", "Risk", "Technology", "Management"],
+  process: [
+    { label: "Financial institutions", items: "Banks · Hedge funds · Asset managers · Private equity · Pensions · Fintech" },
+    { label: "Systems and processes", items: "Finance · Operations · Technology · Data · Reconciliations · Reporting · Controls" },
+    { label: "Work", items: "Walkthroughs · Evidence analysis · Testing · Exceptions · Risk · Findings · Remediation" },
+  ],
 } as const;
 
 export const bittensorWorkstreams = [

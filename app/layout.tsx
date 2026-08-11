@@ -6,11 +6,11 @@ const siteUrl = "https://eirik.co.uk";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Eirik Otis — Product, technical and commercial work",
+    default: "Eirik Otis — Product, commercial and technical work",
     template: "%s — Eirik Otis",
   },
   description:
-    "Selected product, technical and commercial work across AI infrastructure, financial systems and markets.",
+    "Selected product, commercial and technical work across AI infrastructure, financial systems and markets.",
   keywords: [
     "Eirik Otis",
     "product leadership",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Eirik Otis",
-    title: "Eirik Otis — Product, technical and commercial work",
+    title: "Eirik Otis — Product, commercial and technical work",
     description:
       "Selected work across AI infrastructure, financial systems and markets.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Eirik Otis — selected work" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eirik Otis — Product, technical and commercial work",
+    title: "Eirik Otis — Product, commercial and technical work",
     description:
       "Selected work across AI infrastructure, financial systems and markets.",
     images: ["/og.png"],

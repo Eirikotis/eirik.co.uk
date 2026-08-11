@@ -1,9 +1,9 @@
 import { BulletList, ContentSection, Eyebrow, PageShell, TextLink } from "@/components/editorial";
-import { education, experience, profile, qualification } from "@/content/portfolio";
+import { education, experience, profile } from "@/content/portfolio";
 
 export function ExperiencePage() {
   return (
-    <PageShell><main id="main" className="profile-page"><header className="profile-header content-width"><Eyebrow>Background</Eyebrow><h1>Experience</h1><p>Professional experience across regulated financial services, quantitative product development and commercial technology.</p></header><section className="timeline content-width">{experience.map((item) => <article key={item.organisation}><div><h2>{item.organisation}</h2><p>{item.role}</p></div><time>{item.period}</time><p>{item.description}</p>{"href" in item && item.href && <TextLink href={item.href}>View related work</TextLink>}</article>)}</section><ContentSection label="Education" title={education.institution}><div className="education-detail"><p>{education.qualification}</p><strong>{education.result}</strong><span>{education.note}</span></div></ContentSection><ContentSection label="Professional qualification" title={qualification.name}><div className="prose"><p>{qualification.status}</p></div></ContentSection></main></PageShell>
+    <PageShell><main id="main" className="profile-page"><header className="profile-header content-width"><Eyebrow>Background</Eyebrow><h1>Experience</h1><p>Professional experience across regulated financial services, quantitative product development and commercial technology.</p></header><section className="timeline content-width">{experience.map((item) => <article key={item.organisation}><div><h2>{item.organisation}</h2><p>{item.role}</p></div><time>{item.period}</time><p>{item.description}</p>{"href" in item && item.href && <TextLink href={item.href}>View related work</TextLink>}</article>)}</section><ContentSection label="Education" title={education.institution}><div className="education-detail"><p>{education.qualification}</p><strong>{education.result}</strong><span>{education.note}</span></div></ContentSection></main></PageShell>
   );
 }
 
