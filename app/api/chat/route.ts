@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { createLanguageModelProvider } from "@/lib/llm/openai";
+import { createLanguageModelProvider } from "@/lib/llm/openrouter";
 import { getOrCreateConversation, getRecentConversationMessages, saveMessage } from "@/lib/db";
 import { logServerError, logServerInfo } from "@/lib/logger";
 import { enforceRateLimit } from "@/lib/rate-limit";

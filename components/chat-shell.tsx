@@ -18,7 +18,7 @@ type StreamEvent =
 
 const SESSION_KEY = "eirik-ai-session";
 const CONVERSATION_KEY = "eirik-ai-conversation";
-const starters = ["What has he worked on?", "Bittensor", "Financial services", "What has he built?"];
+const starters = ["What has he worked on?", "What has he built?"];
 const askPrompts: Record<string, string> = {
   bittensor: "Tell me about Eirik's Bittensor work.",
   void: "What was VOID and what did Eirik do?",

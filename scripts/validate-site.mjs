@@ -69,7 +69,7 @@ for (const route of [
 
 const envExample = await readFile(join(root, ".env.example"), "utf8");
 for (const variable of [
-  "OPENAI_API_KEY",
+  "OPENROUTER_API_KEY",
   "DATABASE_URL",
   "ADMIN_PASSWORD",
   "RATE_LIMIT_SALT",
