@@ -117,6 +117,10 @@ p, h1, h2, ol { margin: 0; }
 .admin-transcript strong { font-size: 13px; font-weight: 600; }
 .admin-transcript time, .admin-transcript li > div span { color: var(--faint); font-size: 11px; }
 .admin-transcript p { white-space: pre-wrap; }
+.admin-usage { display: grid; gap: 4px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.admin-usage div { display: flex; justify-content: space-between; gap: 12px; }
+.admin-usage dt, .admin-usage dd { margin: 0; color: var(--faint); font: 10px/1.4 var(--mono); }
+.admin-usage dd { color: var(--muted); text-align: right; overflow-wrap: anywhere; }
 
 @media (max-width: 680px) {
   .chat-header, .chat-footer { width: calc(100vw - 32px); }

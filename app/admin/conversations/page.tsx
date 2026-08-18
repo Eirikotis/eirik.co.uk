@@ -25,7 +25,7 @@ export default async function ConversationsPage({ searchParams }: { searchParams
       <form className="admin-search"><label htmlFor="q">Search transcripts</label><div><input id="q" name="q" defaultValue={q} placeholder="Search questions and answers" /><button type="submit">Search</button></div></form>
       {unavailable ? <p className="admin-empty">The conversation database is unavailable.</p> : conversations.length ? (
         <ol className="conversation-list">
-          {conversations.map((conversation) => <li key={conversation.id}><Link href={`/admin/conversations/${conversation.id}`}><div><strong>{conversation.preview || "Empty conversation"}</strong><span>{formatDate(conversation.updatedAt)}</span></div><span>{conversation.messageCount} messages</span></Link></li>)}
+          {conversations.map((conversation) => <li key={conversation.id}><Link href={`/admin/conversations/${conversation.id}`}><div><strong>{conversation.preview || "Empty conversation"}</strong><span>{formatDate(conversation.updatedAt)}</span></div><span>{conversation.messageCount} messages · {conversation.inputTokens.toLocaleString()} in · {conversation.outputTokens.toLocaleString()} out{conversation.costCredits > 0 ? ` · ${conversation.costCredits.toFixed(6)} credits` : ""}</span></Link></li>)}
         </ol>
       ) : <p className="admin-empty">No conversations found.</p>}
     </main>

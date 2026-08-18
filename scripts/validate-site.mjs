@@ -8,11 +8,12 @@ const expectedDocuments = [
   "career.md",
   "claim-boundaries.md",
   "commercial.md",
-  "core.md",
   "dusd.md",
   "education.md",
+  "gartner.md",
   "kpmg.md",
   "one-click-labs.md",
+  "profile.md",
   "technical.md",
 ];
 
@@ -43,7 +44,7 @@ assert(
   "Bittensor relationship boundary is missing.",
 );
 assert(/September 2024.*July 2026/is.test(corpus), "KPMG dates are missing.");
-assert(/did not found the underlying token/i.test(corpus), "DUSD ownership boundary is missing.");
+assert(/did not found (?:the |its )?underlying (?:DUSD )?token/i.test(corpus), "DUSD ownership boundary is missing.");
 
 const knowledgeLoader = await readFile(join(root, "lib", "knowledge.ts"), "utf8");
 assert(knowledgeLoader.includes('import "server-only"'), "The corpus loader must remain server-only.");

@@ -1,6 +1,9 @@
 import { NextRequest } from "next/server";
 import { createLanguageModelProvider } from "@/lib/llm/openrouter";
-import { getOrCreateConversation, getRecentConversationMessages, saveMessage } from "@/lib/db";
+import { getModelConversationContext, getOrCreateConversation, saveMessage } from "@/lib/db";
+import { getCoreProfile, getEvidence } from "@/lib/knowledge";
+import { getSystemPrompt } from "@/lib/system-prompt";
+import type { ModelUsage } from "@/lib/llm/provider";
 import { logServerError, logServerInfo } from "@/lib/logger";
 import { enforceRateLimit } from "@/lib/rate-limit";
 import { isUuid, MAX_HISTORY_MESSAGES, requestsProtectedMaterial, validateMessage } from "@/lib/validation";
@@ -71,9 +74,16 @@ export async function POST(request: NextRequest) {
 
   let provider;
   let history;
+  let profile;
+  let evidence;
   try {
     provider = createLanguageModelProvider();
-    history = await getRecentConversationMessages(conversationId, MAX_HISTORY_MESSAGES);
+    history = await getModelConversationContext(conversationId, MAX_HISTORY_MESSAGES);
+    profile = getCoreProfile();
+    const recentUserQuestions = history.messages
+      .filter((message) => message.role === "user")
+      .map((message) => message.content);
+    evidence = getEvidence(validated.message, recentUserQuestions.slice(0, -1));
   } catch (error) {
     logServerError("chat_provider_unavailable", error, { conversationId });
     const fallback = "The assistant is temporarily unavailable. Your question has been saved; please try again shortly.";
@@ -86,24 +96,55 @@ export async function POST(request: NextRequest) {
   }
 
   const model = provider.model;
-  const messages = history.map(({ role, content }) => ({ role, content }));
+  const messages = history.messages.map(({ role, content }) => ({ role, content }));
+  const evidenceKeys = evidence.map((item) => item.key);
+  const contextCharacters = getSystemPrompt().length + profile.length +
+    evidence.reduce((sum, item) => sum + item.content.length, 0) +
+    messages.reduce((sum, message) => sum + message.content.length, 0) +
+    (history.olderContextSummary?.length || 0);
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       let answer = "";
+      let usage: ModelUsage = {};
       controller.enqueue(event("conversation", { conversationId }));
       try {
-        for await (const delta of provider.streamAnswer(messages)) {
-          answer += delta;
-          controller.enqueue(event("delta", { delta }));
+        for await (const item of provider.streamAnswer({
+          messages,
+          profile,
+          evidence,
+          olderContextSummary: history.olderContextSummary,
+        })) {
+          if (item.type === "usage") {
+            usage = item.usage;
+            continue;
+          }
+          answer += item.delta;
+          controller.enqueue(event("delta", { delta: item.delta }));
         }
         if (!answer.trim()) throw new Error("The model returned an empty response");
-        await saveMessage(conversationId, "assistant", answer, { model });
+        await saveMessage(conversationId, "assistant", answer, {
+          model,
+          provider: provider.name,
+          ...usage,
+          evidenceKeys,
+          contextCharacters,
+          historyMessages: messages.length,
+        });
         controller.enqueue(event("done"));
       } catch (error) {
         logServerError("chat_stream_failed", error, { conversationId, model, partial: Boolean(answer) });
         const safeMessage = answer || "I couldn't complete that answer. Please try again.";
         try {
-          await saveMessage(conversationId, "assistant", safeMessage, { model, status: "error", errorCode: "stream_failed" });
+          await saveMessage(conversationId, "assistant", safeMessage, {
+            model,
+            provider: provider.name,
+            status: "error",
+            errorCode: "stream_failed",
+            ...usage,
+            evidenceKeys,
+            contextCharacters,
+            historyMessages: messages.length,
+          });
         } catch (storageError) {
           logServerError("chat_stream_error_storage_failed", storageError, { conversationId });
         }
