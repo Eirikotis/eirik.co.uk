@@ -6,11 +6,10 @@ const siteUrl = "https://eirik.co.uk";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Eirik Otis — Product, commercial and technical work",
+    default: "Eirik Otis",
     template: "%s — Eirik Otis",
   },
-  description:
-    "Selected product, commercial and technical work across AI infrastructure, financial systems and markets.",
+  description: "Explore Eirik Otis's professional background across product, markets, financial systems and technology.",
   keywords: [
     "Eirik Otis",
     "product leadership",
@@ -25,16 +24,14 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Eirik Otis",
-    title: "Eirik Otis — Product, commercial and technical work",
-    description:
-      "Selected work across AI infrastructure, financial systems and markets.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Eirik Otis — selected work" }],
+    title: "Eirik Otis",
+    description: "Professional background across product, markets, financial systems and technology.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Eirik Otis" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eirik Otis — Product, commercial and technical work",
-    description:
-      "Selected work across AI infrastructure, financial systems and markets.",
+    title: "Eirik Otis",
+    description: "Professional background across product, markets, financial systems and technology.",
     images: ["/og.png"],
   },
   icons: { icon: "/icon.svg" },
@@ -44,13 +41,13 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   colorScheme: "light",
-  themeColor: "#f4f1ea",
+  themeColor: "#f2efe7",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
-      <body className="antialiased">{children}</body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
