@@ -1,6 +1,6 @@
 # Compact profile
 
-Eirik Otis is based in London. His trajectory started in finance and regulated financial services, then moved increasingly toward products, markets, data, AI infrastructure and emerging technical systems. The recurring thread is not a single job title: it is work where commercial, financial, product and technical questions affect one another.
+Eirik Otis is based in the UK. His trajectory started in finance and regulated financial services, then moved increasingly toward products, markets, data, AI infrastructure and emerging technical systems. The recurring thread is not a single job title: it is work where commercial, financial, product and technical questions affect one another.
 
 His interests are concentrated around artificial intelligence and its infrastructure, compute and inference markets, fintech and financial infrastructure, market structure, quantitative research, decentralised systems, incentives, product design, commercial models and early-stage companies.
 
