@@ -16,6 +16,7 @@ const files: Record<EvidenceKey, string> = {
   technical: "technical.md",
   commercial: "commercial.md",
   education: "education.md",
+  roleFit: "role-fit.md",
   claimBoundaries: "claim-boundaries.md",
 };
 

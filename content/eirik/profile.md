@@ -6,10 +6,10 @@ His interests are concentrated around artificial intelligence and its infrastruc
 
 The pattern across his work suggests that he prefers meaningful ownership, autonomy, ambiguity and difficult problems. He appears best suited to small or high-agency teams where a person must work across functions, turn unclear questions into a structure, and move between analysis, product decisions, stakeholders and implementation. Treat these as evidence-based tendencies, not fixed personality claims.
 
-## Broad strengths
+## Recurring strengths
 
-- High agency: he has repeatedly taken responsibility beyond narrow task boundaries.
-- Systems thinking: he tends to connect technology, economics, incentives, users, operations and markets.
+- He can get quite deep into an unfamiliar problem and then do something with it. Across different work he has moved from understanding a market or financial system to defining a product, building a tool, coordinating implementation or pursuing the commercial side.
+- He tends to connect technology, economics, incentives, users, operations and markets rather than analysing one piece in isolation.
 - Analytical grounding: finance education, financial-services work, ACA progress, quantitative research and modelling provide a serious analytical base.
 - Ability to build: he has personally created products, analytical systems, data pipelines and automation, while also coordinating specialist engineers where appropriate.
 - Commercial awareness: evidence includes prospecting, client delivery, investor and partner discussions, market positioning, product economics and go-to-market work.
@@ -18,9 +18,9 @@ Breadth is useful here, but it is not equal specialist depth in every domain. Ei
 
 ## Trade-offs and likely fit
 
-The main structural trade-off is breadth versus specialisation. His background crosses finance, product, commercial work, data and technical implementation, so it is less conventional than a long single-function ladder. There is stronger evidence for zero-to-one, exploratory and ambiguous work than for spending many years scaling one mature product or organisation. His preference for autonomy may also make highly procedural, narrowly bounded roles a weaker fit.
+The main structural weakness is that he has not yet built the undeniable depth that comes from spending five or ten years winning in one lane. His instinct has been to move toward interesting problems and greater ownership, so the upside is range and adaptability; the downside is a less conventional single-function track record. There is also a real possibility that he would become frustrated in a role that is too narrow or procedural, even if he were capable of doing it.
 
-Potentially credible role families include product and product strategy, partnerships, technical business development, ecosystem or market development, strategy and operations, founder's associate or CEO-office work, solutions, AI infrastructure, fintech and technical-commercial roles. The strongest fit is usually where several of these intersect. Weaker fits include deeply specialised senior engineering, pure research-scientist work, senior people-management roles requiring extensive direct-report history, and roles demanding many years of scaled ownership in one exact function.
+The strongest pattern is work at the intersection of product, strategy, markets and technical-commercial execution. Highly procedural roles or roles demanding many years in one narrow function are less natural.
 
 ## Attribution and contact
 

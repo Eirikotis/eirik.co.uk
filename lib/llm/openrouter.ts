@@ -30,8 +30,10 @@ export class OpenRouterProvider implements LanguageModelProvider {
   }
 
   async *streamAnswer({ messages, profile, evidence, olderContextSummary }: ModelRequest) {
-    const evidenceContext = evidence.length
-      ? evidence.map((item) => `<evidence name="${item.key}">\n${item.content}\n</evidence>`).join("\n\n")
+    const roleGuidance = evidence.find((item) => item.key === "roleFit");
+    const factualEvidence = evidence.filter((item) => item.key !== "roleFit");
+    const evidenceContext = factualEvidence.length
+      ? factualEvidence.map((item) => `<evidence name="${item.key}">\n${item.content}\n</evidence>`).join("\n\n")
       : "No detailed evidence was retrieved for this broad question. Answer from the compact profile and state uncertainty where necessary.";
 
     const request: OpenRouterStreamingRequest = {
@@ -40,6 +42,7 @@ export class OpenRouterProvider implements LanguageModelProvider {
         { role: "system", content: getSystemPrompt() },
         { role: "system", content: `<core_profile>\n${profile}\n</core_profile>` },
         { role: "system", content: `<retrieved_evidence>\n${evidenceContext}\n</retrieved_evidence>` },
+        ...(roleGuidance ? [{ role: "system" as const, content: `<role_fit_guidance>\n${roleGuidance.content}\n</role_fit_guidance>` }] : []),
         ...(olderContextSummary ? [{ role: "system" as const, content: `<earlier_topics>\n${olderContextSummary}\n</earlier_topics>` }] : []),
         ...messages,
       ],

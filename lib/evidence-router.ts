@@ -8,6 +8,7 @@ export type EvidenceKey =
   | "technical"
   | "commercial"
   | "education"
+  | "roleFit"
   | "claimBoundaries";
 
 type Rule = { key: EvidenceKey; terms: RegExp[] };
@@ -25,7 +26,7 @@ const rules: Rule[] = [
   { key: "claimBoundaries", terms: [/did (?:he|eirik) found|founder|employed by/i, /profitable|fundrais|scaled|revenue|tvl|alpha/i, /claim|attribution|official/i] },
 ];
 
-const broadOnly = /^(?:who is eirik|tell me about (?:eirik|him)|what is (?:eirik|he) like|what (?:interests|motivates) (?:eirik|him)|what(?:'s| is) (?:his|eirik'?s) (?:greatest |biggest )?weakness|would you hire (?:eirik|him))\??$/i;
+const broadOnly = /^(?:who is eirik|tell me about (?:eirik|him)|what is (?:eirik|he) like|what (?:interests|motivates) (?:eirik|him)|what(?:'s| is) (?:his|eirik'?s) (?:greatest |biggest )?weakness)\??$/i;
 const genericFollowUp = /^(?:what about (?:that|this|it|him)|tell me more|why|how so|go on|and\??|what else)\??$/i;
 
 function score(text: string, rule: Rule) {
@@ -35,6 +36,25 @@ function score(text: string, rule: Rule) {
 export function selectEvidenceKeys(question: string, recentUserQuestions: string[] = []): EvidenceKey[] {
   const current = question.trim();
   if (broadOnly.test(current)) return [];
+
+  if (/product manager|product management|product role/i.test(current)) {
+    return ["roleFit", "technical", "bittensor"];
+  }
+  if (/finance manager|financial controller|accounting role/i.test(current)) {
+    return ["roleFit", "kpmg", "education"];
+  }
+  if (/software engineer|software engineering|engineering role|research scientist/i.test(current)) {
+    return ["roleFit", "technical"];
+  }
+  if (/enterprise (?:account executive|sales)|pure sales|sales role|salesperson/i.test(current)) {
+    return ["roleFit", "commercial", "gartner"];
+  }
+  if (/strategy\s*(?:&|and)\s*operations|strategy\s*(?:&|and)\s*ops|founder'?s associate|ceo office|operations? manager|operations? management/i.test(current)) {
+    return ["roleFit", "commercial", "kpmg"];
+  }
+  if (/would you hire (?:eirik|him)|what roles? (?:suit|fit)|best roles? for|career fit/i.test(current)) {
+    return ["roleFit"];
+  }
 
   let ranked = rules
     .map((rule, index) => ({ key: rule.key, score: score(current, rule), index }))

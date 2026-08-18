@@ -14,6 +14,7 @@ const expectedDocuments = [
   "kpmg.md",
   "one-click-labs.md",
   "profile.md",
+  "role-fit.md",
   "technical.md",
 ];
 
