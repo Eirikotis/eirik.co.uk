@@ -12,6 +12,38 @@ test("specific employer and ecosystem questions retrieve only relevant evidence"
   assert.deepEqual(selectEvidenceKeys("What did he do at KPMG?"), ["kpmg"]);
   assert.deepEqual(selectEvidenceKeys("What has he done in Bittensor?"), ["bittensor"]);
   assert.deepEqual(selectEvidenceKeys("Can he code?"), ["technical"]);
+  assert.deepEqual(selectEvidenceKeys("Can he actually code?"), ["technical", "workSystems"]);
+});
+
+test("build questions retrieve complete systems rather than bare project labels", () => {
+  assert.deepEqual(selectEvidenceKeys("What has he built?"), ["workSystems"]);
+  assert.deepEqual(selectEvidenceKeys("What has Eirik actually made?"), ["workSystems"]);
+  assert.deepEqual(selectEvidenceKeys("Has he built real products?"), ["workSystems"]);
+  assert.deepEqual(selectEvidenceKeys("What systems has he created?"), ["workSystems"]);
+  assert.deepEqual(selectEvidenceKeys("Can he actually build?"), ["workSystems"]);
+  assert.deepEqual(selectEvidenceKeys("What's the most technically complex thing he's worked on?"), ["workSystems"]);
+});
+
+test("concept queries retrieve the right canonical work without requiring project names", () => {
+  assert.deepEqual(selectEvidenceKeys("Has he built anything in AI?"), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("Has he built financial products?"), ["financialSystems"]);
+  assert.deepEqual(selectEvidenceKeys("Can he build data systems?"), ["workSystems", "technical"]);
+  assert.deepEqual(selectEvidenceKeys("Has he done lending?"), ["bittensor", "oneClickLabs"]);
+  assert.deepEqual(selectEvidenceKeys("Has he worked with ML?"), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("Has he done infrastructure?"), ["workSystems"]);
+});
+
+test("canonical follow-ups and attribution questions retrieve detailed evidence", () => {
+  assert.deepEqual(selectEvidenceKeys("What's VOID?"), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("What's AutoResearch?"), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("How does the credit protocol work?"), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("What was the quantitative research system trying to do?"), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("What has he done in compute and inference?"), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("What is DUSD.fun?"), ["dusd"]);
+  assert.deepEqual(selectEvidenceKeys("Is DUSD a meme coin?"), ["dusd", "claimBoundaries"]);
+  assert.deepEqual(selectEvidenceKeys("Did he work for Bittensor?"), ["bittensor", "claimBoundaries"]);
+  assert.deepEqual(selectEvidenceKeys("Was his Bittensor work paid?"), ["bittensor", "claimBoundaries"]);
+  assert.deepEqual(selectEvidenceKeys("What has he built outside crypto?"), ["technical", "kpmg"]);
 });
 
 test("AI infrastructure partnerships questions combine the three strongest sources", () => {

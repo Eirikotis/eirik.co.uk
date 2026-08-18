@@ -1,10 +1,12 @@
-# dusd.fun
+# Live on-chain analytics and automation (dusd.fun)
 
 ## Product and ownership
 
-dusd.fun is a live Solana market-data, supply-analytics and burn-telemetry product that Eirik independently designed, built and operates. It has reached around 300 unique daily visitors and has continued to grow.
+This is a live on-chain market-intelligence and automation product around a community/meme token on Solana with fee-funded buy-and-burn mechanics. The product is called dusd.fun; Eirik independently designed, built and operates it. It has reached around 300 unique daily visitors and has continued to grow.
 
 dusd.fun is Eirik's product and analytics layer. He did not found the underlying DUSD token or its community. Do not blur product ownership with token/community founding.
+
+The underlying DUSD token is accurately described as a community or meme token. If asked, say so directly while distinguishing the token from the serious analytics and transaction-automation product Eirik built around it.
 
 ## Public product
 

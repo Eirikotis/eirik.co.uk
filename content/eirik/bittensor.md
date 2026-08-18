@@ -2,13 +2,13 @@
 
 ## Status and attribution
 
-Eirik's Bittensor work was independent and venture-based work within the ecosystem during 2025–2026. He was not employed by Bittensor or Opentensor. Public descriptions should not imply official representation of either organisation.
+Eirik undertook paid professional work within the Bittensor ecosystem during 2025–2026, including work compensated through a Bittensor subnet, alongside venture and independent ecosystem work. Usually describe this simply as "work in the Bittensor ecosystem". When professional or compensation status matters, "paid professional work within the Bittensor ecosystem" is accurate. The evidence does not establish formal employment by Opentensor or the Bittensor Foundation; mention that distinction only when relevant.
 
 The work covered decentralised AI, compute and inference markets, financial infrastructure, quantitative market research, product strategy, market structure, subnet architecture, incentive systems, token economics, partnerships, ecosystem strategy, go-to-market and competitive research.
 
-## VOID — cross-chain credit infrastructure
+## Credit protocol for Bittensor assets (project name: VOID)
 
-VOID was an early-stage venture designing credit infrastructure around Bittensor subnet assets as collateral. The architecture combined isolated Morpho lending markets with cross-chain collateral handling, oracle and liquidation considerations, risk-curated lending structures and market-specific underwriting.
+This was a credit protocol for Bittensor built on Morpho isolated lending markets, with Bittensor subnet assets designed for use as collateral. The architecture combined isolated lending markets with cross-chain collateral handling, oracle and liquidation systems, risk-curated structures and market-specific underwriting. The venture was called VOID.
 
 Eirik worked as Product & Commercial Lead. His responsibilities included:
 
@@ -26,9 +26,9 @@ Eirik worked as Product & Commercial Lead. His responsibilities included:
 
 The underlying opportunity was to create the underwriting, liquidity and operating standards needed for emerging network assets to support credit. The system reached functional implementation and detailed strategic discussions. It did not complete a fundraise, reach a scaled institutional launch or produce scaled TVL or revenue. The accurate conclusion is that substantial product, risk and venture work was completed, but the market timing and financing outcome did not support a scaled launch.
 
-## Bittensor AutoResearch
+## Automated quantitative research for frontier markets (project name: Bittensor AutoResearch)
 
-Bittensor AutoResearch was an independently designed quantitative and machine-learning research system for testing whether signals could predict relative performance across Bittensor subnet markets, and whether those signals survived realistic portfolio construction and unseen data.
+This was an automated quantitative and machine-learning research system Eirik built to search systematically for predictive signals and potential alpha in frontier Bittensor subnet markets, then test whether those signals survived realistic portfolio construction and unseen data. The project was called Bittensor AutoResearch.
 
 The system included:
 
@@ -53,7 +53,7 @@ Human judgement remained responsible for objectives, architecture and deployment
 
 ## Compute and inference markets
 
-Eirik also worked on decentralised compute and inference-market questions. The approved public scope includes:
+Eirik also worked on decentralised compute and inference markets: systems that aggregate capacity from independent GPU or compute suppliers so large AI models can be trained or served, with verification, incentives and market mechanisms used to coordinate service quality. His work focused on the product, market and commercial layer rather than a claim that he personally operated every node or built an entire production network. The approved public scope includes:
 
 - node and executor economics;
 - supply, utilisation and service-quality dynamics;

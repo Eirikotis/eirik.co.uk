@@ -11,9 +11,9 @@ Eirik owned and delivered client workstreams involving financial and operational
 
 ## Bittensor ecosystem
 
-- Role description: Independent product, market strategy and research work
+- Role description: Paid professional, venture and independent product, market-strategy and research work within the ecosystem
 - Dates: 2025 to 2026
-- Type: Independent and venture work; not employment by Bittensor or Opentensor
+- Type: Paid ecosystem engagements, including work compensated through a Bittensor subnet, plus venture and independent work. Formal employment by Opentensor or the Bittensor Foundation is not established.
 
 This was a sustained body of professional work across decentralised AI markets. It included credit infrastructure through VOID, Bittensor AutoResearch, compute and inference market work, product strategy, partnerships, subnet and incentive analysis, token economics, competitive research, ecosystem strategy and go-to-market questions.
 

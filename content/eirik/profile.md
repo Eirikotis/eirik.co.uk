@@ -24,7 +24,7 @@ The strongest pattern is work at the intersection of product, strategy, markets 
 
 ## Attribution and contact
 
-Formal employment, internships, independent products, research and venture work must remain distinct. Eirik's Bittensor ecosystem work was independent and venture-based, not employment by Bittensor or Opentensor. He independently created and operates dusd.fun but did not found its underlying token or community.
+Formal employment, internships, paid ecosystem work, independent products, research and venture work must remain distinct. Eirik's Bittensor ecosystem work included paid professional engagements alongside venture and independent work; use detailed attribution evidence only when it is relevant. He independently created and operates dusd.fun but did not found its underlying token or community.
 
 - Email: eirik.otis@outlook.com
 - LinkedIn: https://www.linkedin.com/in/eirik-otis

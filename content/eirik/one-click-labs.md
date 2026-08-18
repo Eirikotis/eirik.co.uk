@@ -1,4 +1,4 @@
-# One Click Labs
+# Quantitative DeFi investment and portfolio infrastructure (One Click Labs)
 
 ## Role
 

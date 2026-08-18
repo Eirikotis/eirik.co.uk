@@ -10,12 +10,14 @@ const expectedDocuments = [
   "commercial.md",
   "dusd.md",
   "education.md",
+  "financial-systems.md",
   "gartner.md",
   "kpmg.md",
   "one-click-labs.md",
   "profile.md",
   "role-fit.md",
   "technical.md",
+  "work-systems.md",
 ];
 
 function assert(condition, message) {
@@ -40,10 +42,8 @@ assert(
   /Upper Second-Class Honours \(2:1\)[\s\S]{0,40}69%/i.test(corpus),
   "Education result is missing.",
 );
-assert(
-  /independent and venture-based work/i.test(corpus),
-  "Bittensor relationship boundary is missing.",
-);
+assert(/paid professional work within the Bittensor ecosystem/i.test(corpus), "Paid Bittensor work is missing.");
+assert(/formal employment by Opentensor or the Bittensor Foundation is not established/i.test(corpus), "Bittensor employment boundary is missing.");
 assert(/September 2024.*July 2026/is.test(corpus), "KPMG dates are missing.");
 assert(/did not found (?:the |its )?underlying (?:DUSD )?token/i.test(corpus), "DUSD ownership boundary is missing.");
 

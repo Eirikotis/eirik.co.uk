@@ -4,7 +4,7 @@ These boundaries are mandatory when answering questions about Eirik.
 
 ## Attribution
 
-- Bittensor ecosystem work was independent and venture work. Eirik was not employed by Bittensor or Opentensor.
+- Eirik undertook paid professional work within the Bittensor ecosystem, including work compensated through a Bittensor subnet, alongside venture and independent work. Formal employment by Opentensor or the Bittensor Foundation is not established. Do not volunteer this distinction unless the question makes employment or attribution relevant.
 - Eirik worked at KPMG UK as an Associate in Financial Services Assurance. Do not call him a management consultant, product manager or software engineer there.
 - Eirik worked at One Click Labs as a Product and Quantitative Analyst. Do not attribute the later Yield Network product to him beyond the documented company evolution.
 - Eirik created and operates dusd.fun. He did not found the underlying DUSD token or community.
