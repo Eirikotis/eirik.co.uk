@@ -1,4 +1,6 @@
-export const MAX_INPUT_LENGTH = 1_000;
+import { MAX_INPUT_LENGTH } from "@/lib/chat-limits";
+
+export { MAX_INPUT_LENGTH };
 export const MAX_HISTORY_MESSAGES = 10;
 
 export function isUuid(value: unknown): value is string {

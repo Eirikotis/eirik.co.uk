@@ -39,6 +39,33 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
   const current = question.trim();
   if (broadOnly.test(current)) return [];
 
+  // Explicit job titles and role-fit requests outrank incidental technology or
+  // project words inside a pasted job description.
+  if (/product manager|product management|product role/i.test(current)) {
+    return ["roleFit", "technical", "bittensor"];
+  }
+  if (/finance manager|financial controller|accounting role/i.test(current)) {
+    return ["roleFit", "kpmg", "education"];
+  }
+  if (/finance analyst|financial analyst|\bfp&a\b|financial planning and analysis|commercial finance|finance business partner|financial performance|forecast variances?|finance.{0,30}(?:sql|data team|reporting tools?)/i.test(current)) {
+    return ["roleFit", "kpmg", "technical"];
+  }
+  if (/software engineer|software engineering|engineering role|research scientist/i.test(current)) {
+    return ["roleFit", "technical"];
+  }
+  if (/enterprise (?:account executive|sales)|pure sales|sales role|salesperson/i.test(current)) {
+    return ["roleFit", "commercial", "gartner"];
+  }
+  if (/strategy\s*(?:&|and)\s*operations|strategy\s*(?:&|and)\s*ops|founder'?s associate|ceo office|operations? manager|operations? management/i.test(current)) {
+    return ["roleFit", "commercial", "kpmg"];
+  }
+  if (/partnership|business development|\bbd\b/i.test(current) && /ai|infrastructure|compute|inference/i.test(current)) {
+    return ["bittensor", "commercial", "gartner"];
+  }
+  if (/would you hire (?:eirik|him)|what roles? (?:suit|fit)|best roles? for|career fit/i.test(current)) {
+    return ["roleFit"];
+  }
+
   if (/(?:build|built) outside (?:of )?(?:crypto|web3|defi)|non[- ]crypto (?:build|project|system)/i.test(current)) {
     return ["technical", "kpmg"];
   }
@@ -82,25 +109,6 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
     return ["dusd", "claimBoundaries"];
   }
 
-  if (/product manager|product management|product role/i.test(current)) {
-    return ["roleFit", "technical", "bittensor"];
-  }
-  if (/finance manager|financial controller|accounting role/i.test(current)) {
-    return ["roleFit", "kpmg", "education"];
-  }
-  if (/software engineer|software engineering|engineering role|research scientist/i.test(current)) {
-    return ["roleFit", "technical"];
-  }
-  if (/enterprise (?:account executive|sales)|pure sales|sales role|salesperson/i.test(current)) {
-    return ["roleFit", "commercial", "gartner"];
-  }
-  if (/strategy\s*(?:&|and)\s*operations|strategy\s*(?:&|and)\s*ops|founder'?s associate|ceo office|operations? manager|operations? management/i.test(current)) {
-    return ["roleFit", "commercial", "kpmg"];
-  }
-  if (/would you hire (?:eirik|him)|what roles? (?:suit|fit)|best roles? for|career fit/i.test(current)) {
-    return ["roleFit"];
-  }
-
   let ranked = rules
     .map((rule, index) => ({ key: rule.key, score: score(current, rule), index }))
     .filter((item) => item.score > 0)
@@ -112,10 +120,6 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
       .map((rule, index) => ({ key: rule.key, score: score(prior, rule), index }))
       .filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score || a.index - b.index);
-  }
-
-  if (/partnership|business development|\bbd\b/i.test(current) && /ai|infrastructure|compute|inference/i.test(current)) {
-    return ["bittensor", "commercial", "gartner"];
   }
 
   return ranked.slice(0, 3).map((item) => item.key);

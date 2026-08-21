@@ -2,6 +2,7 @@
 
 import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
+import { MAX_INPUT_LENGTH } from "@/lib/chat-limits";
 
 type ChatMessage = {
   id: string;
@@ -294,7 +295,7 @@ function Composer({ draft, setDraft, submit, onKeyDown, textareaRef, disabled }:
   return (
     <form className="chat-composer" onSubmit={submit}>
       <label className="sr-only" htmlFor="question">Ask something about Eirik</label>
-      <textarea id="question" ref={textareaRef} name="question" rows={1} maxLength={1_000} value={draft} onChange={(event) => setDraft(event.target.value)} onKeyDown={onKeyDown} placeholder="Ask something…" disabled={disabled} />
+      <textarea id="question" ref={textareaRef} name="question" rows={1} maxLength={MAX_INPUT_LENGTH} value={draft} onChange={(event) => setDraft(event.target.value)} onKeyDown={onKeyDown} placeholder="Ask something…" disabled={disabled} />
       <button type="submit" aria-label="Send question" disabled={disabled || !draft.trim()}><span aria-hidden="true">↑</span></button>
     </form>
   );

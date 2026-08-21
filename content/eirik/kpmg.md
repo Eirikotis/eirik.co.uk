@@ -24,6 +24,8 @@ The role gave him direct exposure to how financial institutions operate across f
 
 The work can be understood as connecting client and market context, operating models, systems and data, and financial reporting. It was assurance work, but it developed broader finance-systems judgement: understanding how processes actually operate, where information moves, where dependencies sit and what happens when controls or data fail.
 
+Together with Eirik's Accounting & Finance degree and ACA progress, this is conventional finance training and professional experience. Do not describe him as lacking a traditional finance background merely because his more recent work also uses product, data and frontier-market tools.
+
 ## Qualification
 
 Eirik completed 12 of 15 ICAEW ACA examinations, passing all 12 on the first attempt.

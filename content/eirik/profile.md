@@ -10,7 +10,7 @@ The pattern across his work suggests that he prefers meaningful ownership, auton
 
 - He can get quite deep into an unfamiliar problem and then do something with it. Across different work he has moved from understanding a market or financial system to defining a product, building a tool, coordinating implementation or pursuing the commercial side.
 - He tends to connect technology, economics, incentives, users, operations and markets rather than analysing one piece in isolation.
-- Analytical grounding: finance education, financial-services work, ACA progress, quantitative research and modelling provide a serious analytical base.
+- Traditional finance grounding: a BSc in Accounting & Finance from Warwick, nearly two years in Financial Services Assurance at KPMG, and 12 of 15 ICAEW ACA examinations completed. This conventional finance foundation is paired with quantitative research, SQL, data, product and technical work; the frontier layer extends the finance background rather than replacing it.
 - Ability to build: he has personally created products, analytical systems, data pipelines and automation, while also coordinating specialist engineers where appropriate.
 - Commercial awareness: evidence includes prospecting, client delivery, investor and partner discussions, market positioning, product economics and go-to-market work.
 
