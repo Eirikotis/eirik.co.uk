@@ -1,8 +1,8 @@
-import { cp, mkdir, rm } from "node:fs/promises";
+import { copyFile, cp, mkdir, rm } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 
 const root = resolve(".");
-const output = resolve(root, "out");
+const nextOutput = resolve(root, ".next");
 const dist = resolve(root, "dist");
 
 if (basename(dist) !== "dist" || !dist.startsWith(`${root}\\`) && !dist.startsWith(`${root}/`)) {
@@ -12,5 +12,8 @@ if (basename(dist) !== "dist" || !dist.startsWith(`${root}\\`) && !dist.startsWi
 await rm(dist, { recursive: true, force: true });
 await mkdir(resolve(dist, "client"), { recursive: true });
 await mkdir(resolve(dist, "server"), { recursive: true });
-await cp(output, resolve(dist, "client"), { recursive: true });
-await cp(resolve(root, "worker", "sites-static.js"), resolve(dist, "server", "index.js"));
+await mkdir(resolve(dist, "client", "_next"), { recursive: true });
+await cp(resolve(nextOutput, "static"), resolve(dist, "client", "_next", "static"), { recursive: true });
+await copyFile(resolve(nextOutput, "server", "app", "index.html"), resolve(dist, "client", "index.html"));
+await cp(resolve(root, "public"), resolve(dist, "client"), { recursive: true });
+await cp(resolve(root, "worker", "sites-proxy.js"), resolve(dist, "server", "index.js"));
