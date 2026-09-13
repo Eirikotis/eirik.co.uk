@@ -15,7 +15,7 @@ Eirik owned and delivered client workstreams involving financial and operational
 - Dates: 2025 to 2026
 - Type: Paid ecosystem engagements, including work compensated through a Bittensor subnet, plus venture and independent work. Formal employment by Opentensor or the Bittensor Foundation is not established.
 
-This was a sustained body of professional work across decentralised AI markets. It included credit infrastructure through VOID, Bittensor AutoResearch, compute and inference market work, product strategy, partnerships, subnet and incentive analysis, token economics, competitive research, ecosystem strategy and go-to-market questions.
+This was a sustained body of professional work across decentralised AI markets. It included Bittensor credit infrastructure, quantitative AutoResearch, compute and inference market work, product strategy, partnerships, subnet and incentive analysis, token economics, competitive research, ecosystem strategy and go-to-market questions.
 
 ## One Click Labs
 

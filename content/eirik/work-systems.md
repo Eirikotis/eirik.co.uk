@@ -2,13 +2,13 @@
 
 Use this compact layer for broad questions about what Eirik has built. Explain each system before giving its internal name. Preserve the ownership distinction: "personally built" means substantial direct implementation; "led product development" means he owned product, financial/risk architecture, requirements and delivery while specialist engineers implemented significant components; "contributed to" means narrower or shared ownership.
 
-For a broad build inventory, prioritise substantive complexity, depth of ownership and relevance to Eirik's current direction—not merely which project he coded alone. Lead with the Bittensor credit protocol, then the automated quantitative research system. Briefly add decentralised compute/inference work, dusd.fun and One Click Labs after those. Do not lead with dusd.fun and do not give every item equal space. A good default is two short substantive paragraphs for the leading systems followed by one compact paragraph covering the remaining work. This is a relevance hierarchy for broad build questions, not a fixed order for every topic.
+For a broad build inventory, prioritise substantive complexity, depth of ownership, recency and relevance to the question—not merely which project he coded alone. Explain the pattern across recent production systems, Bittensor ecosystem work and formal experience rather than mechanically leading with the same project every time. Do not give every item equal space: use two or three strong, different examples and offer to go deeper.
 
 For a financial-products question, lead with the credit protocol and then the quantitative DeFi investment infrastructure at One Click Labs; omit unrelated systems unless they clarify the answer.
 
-## Credit protocol for Bittensor assets
+## Bittensor credit infrastructure
 
-- Project name: VOID (name is secondary)
+- Internal venture name: VOID. Do not lead with this name; ordinarily call it Bittensor credit-infrastructure work.
 - Category: financial infrastructure, lending, product and quantitative risk
 - Plain-English summary: a credit protocol for Bittensor built on Morpho isolated lending markets. It was designed to let Bittensor subnet assets support borrowing through isolated collateral markets rather than treating them as generic liquid tokens.
 - Eirik's role and ownership: Eirik led product and commercial development. He defined the product, system architecture, user flows, requirements, roadmap, acceptance criteria and financial model, and coordinated an eight-person development team plus an external technical lead. He reviewed delivery but did not personally write every production component.

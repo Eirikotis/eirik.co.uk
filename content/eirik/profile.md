@@ -4,6 +4,8 @@ Eirik Otis is based in the UK. His trajectory started in finance and regulated f
 
 His interests are concentrated around artificial intelligence and its infrastructure, compute and inference markets, fintech and financial infrastructure, market structure, quantitative research, decentralised systems, incentives, product design, commercial models and early-stage companies.
 
+His most recent independent systems include E2 Finance, which normalises and analyses tokenised-market data and supports wallet-controlled transactions; Opportunity Engine, which ingests and canonicalises changing job-board data into ranked decision queues; DUSD Markets and dusd.fun; and this retrieval-grounded AI interface. These sit alongside sustained professional work in the Bittensor ecosystem, recent regulated financial-services experience at KPMG and earlier quantitative DeFi work at One Click Labs.
+
 The pattern across his work suggests that he prefers meaningful ownership, autonomy, ambiguity and difficult problems. He appears best suited to small or high-agency teams where a person must work across functions, turn unclear questions into a structure, and move between analysis, product decisions, stakeholders and implementation. Treat these as evidence-based tendencies, not fixed personality claims.
 
 ## Recurring strengths

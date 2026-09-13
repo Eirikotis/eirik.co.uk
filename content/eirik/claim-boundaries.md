@@ -11,8 +11,8 @@ These boundaries are mandatory when answering questions about Eirik.
 
 ## Outcomes
 
-- VOID did not complete a fundraise, scaled institutional launch, scaled TVL or scaled revenue.
-- Eirik did not personally write all VOID production software; he led product and commercial work and coordinated engineering delivery.
+- The Bittensor credit-infrastructure venture did not complete a fundraise, scaled institutional launch, scaled TVL or scaled revenue.
+- Eirik did not personally write all Bittensor credit-protocol production software; he led product and commercial work and coordinated engineering delivery.
 - AutoResearch did not establish reliable profitable deployed alpha.
 - Gartner's figure is more than $150,000 in potential contract value, not necessarily closed revenue.
 - Around 300 unique daily visitors is the approved audience figure for dusd.fun; avoid presenting it as a permanent or audited number.

@@ -1,5 +1,6 @@
 export type EvidenceKey =
   | "career"
+  | "capabilitySynthesis"
   | "bittensor"
   | "kpmg"
   | "oneClickLabs"
@@ -29,7 +30,7 @@ const rules: Rule[] = [
 ];
 
 const broadOnly = /^(?:who is eirik|tell me about (?:eirik|him)|what is (?:eirik|he) like|what (?:interests|motivates) (?:eirik|him)|what(?:'s| is) (?:his|eirik'?s) (?:greatest |biggest )?weakness)\??$/i;
-const genericFollowUp = /^(?:what about (?:that|this|it|him)|tell me more|why|how so|go on|and\??|what else|(?:can|could|are) you (?:even )?(?:able to )?(?:give|provide).{0,60}(?:examples?|details?).*|(?:give|provide) (?:me )?(?:a |some )?(?:specific )?(?:examples?|details?).*)\??$/i;
+const genericFollowUp = /^(?:what about (?:that|this|it|him)|tell me more|why|how so|go on|and\??|what else|(?:so\s+)?(?:is|was) that (?:just|only) (?:one|a single).{0,80}|(?:has|had) (?:he|eirik) (?:shown|demonstrated|done) (?:that|it) elsewhere.*|(?:any|what) other examples?.*|(?:can|could|are) you (?:even )?(?:able to )?(?:give|provide).{0,60}(?:examples?|details?).*|(?:give|provide) (?:me )?(?:a |some )?(?:specific )?(?:examples?|details?).*)\??$/i;
 const implicitEirikProfessionalReference = /(?:my|your)\s+(?:professional\s+)?(?:background|experience|career|work history)/i;
 
 function score(text: string, rule: Rule) {
@@ -38,17 +39,25 @@ function score(text: string, rule: Rule) {
 
 export function selectEvidenceKeys(question: string, recentUserQuestions: string[] = []): EvidenceKey[] {
   const current = question.trim();
-  if (broadOnly.test(current)) return [];
+  if (broadOnly.test(current)) {
+    return /weakness/i.test(current) ? [] : ["capabilitySynthesis"];
+  }
 
   // Eirik often tests his own site in the first person, while visitors can
   // naturally address the interface in the second person. Both still mean
   // Eirik's supplied professional history, not the anonymous visitor's.
   if (implicitEirikProfessionalReference.test(current)) {
-    return ["career"];
+    return /work history|chronology|timeline/i.test(current)
+      ? ["career"]
+      : ["capabilitySynthesis", "career"];
+  }
+
+  if (/tell me (?:about )?(?:his|eirik'?s) (?:professional )?(?:background|experience)|what (?:professional )?experience (?:does|has) (?:he|eirik)|what is (?:his|eirik'?s) (?:professional )?(?:background|experience)/i.test(current)) {
+    return ["capabilitySynthesis", "career"];
   }
 
   if (/messy data|dirty data|data quality|inconsistent (?:data|formats?)|fragmented (?:data|datasets?)|incomplete (?:data|historical|history)|clean(?:ing|ed)? and normali[sz]/i.test(current)) {
-    return ["oneClickLabs", "bittensor"];
+    return ["capabilitySynthesis"];
   }
 
   if (genericFollowUp.test(current) && recentUserQuestions.length) {
@@ -61,13 +70,13 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
   // Explicit job titles and role-fit requests outrank incidental technology or
   // project words inside a pasted job description.
   if (/product manager|product management|product role/i.test(current)) {
-    return ["roleFit", "technical", "bittensor"];
+    return ["roleFit", "capabilitySynthesis"];
   }
   if (/finance manager|financial controller|accounting role/i.test(current)) {
     return ["roleFit", "kpmg", "education"];
   }
   if (/finance analyst|financial analyst|\bfp&a\b|financial planning and analysis|commercial finance|finance business partner|financial performance|forecast variances?|finance.{0,30}(?:sql|data team|reporting tools?)/i.test(current)) {
-    return ["roleFit", "kpmg", "technical"];
+    return ["roleFit", "capabilitySynthesis"];
   }
   if (/capital allocation|fund management|portfolio performance|investment performance|investor reporting/i.test(current) && /analyst|role|job|fit|suit/i.test(current)) {
     return ["roleFit", "financialSystems", "kpmg"];
@@ -79,7 +88,7 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
     return ["roleFit", "commercial", "gartner"];
   }
   if (/strategy\s*(?:&|and)\s*operations|strategy\s*(?:&|and)\s*ops|founder'?s associate|ceo office|operations? manager|operations? management/i.test(current)) {
-    return ["roleFit", "commercial", "kpmg"];
+    return ["roleFit", "capabilitySynthesis"];
   }
   if (/partnership|business development|\bbd\b/i.test(current) && /ai|infrastructure|compute|inference/i.test(current)) {
     return ["bittensor", "commercial", "gartner"];
@@ -89,37 +98,37 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
   }
 
   if (/(?:build|built) outside (?:of )?(?:crypto|web3|defi)|non[- ]crypto (?:build|project|system)/i.test(current)) {
-    return ["technical", "kpmg"];
+    return ["capabilitySynthesis"];
   }
   if (/credit protocol|morpho|collateral (?:system|design|asset)|oracle (?:system|architecture)|liquidation (?:system|architecture)/i.test(current)) {
     return ["bittensor"];
   }
   if (/financial products?/i.test(current)) {
-    return ["financialSystems"];
+    return ["capabilitySynthesis", "financialSystems"];
   }
   if (/(?:build|built|made|created|worked on|done).{0,30}lending|lending.{0,30}(?:build|built|made|created|worked on|done)/i.test(current)) {
     return ["bittensor", "oneClickLabs"];
   }
   if (/(?:build|built|made|created|worked).{0,25}(?:\bai\b|ai system|machine learning|\bml\b)|(?:\bai\b|machine learning|\bml\b).{0,25}(?:build|built|made|created|experience|work)/i.test(current)) {
-    return ["bittensor"];
+    return ["capabilitySynthesis"];
   }
   if (/quantitative (?:auto[- ]?research|research system)|research system.{0,30}(?:signal|alpha|market|trying)|walk[- ]forward|out[- ]of[- ]time holdout/i.test(current)) {
     return ["bittensor"];
   }
   if (/(?:build|built|created|worked with).{0,25}(?:data systems?|data infrastructure|pipelines?)|(?:data systems?|data infrastructure|pipelines?).{0,25}(?:build|built|created|experience)/i.test(current)) {
-    return ["workSystems", "technical"];
+    return ["capabilitySynthesis"];
   }
   if (/can (?:he|eirik) actually code/i.test(current)) {
-    return ["technical", "workSystems"];
+    return ["capabilitySynthesis", "technical"];
   }
   if (/(?:build|built|made|created|worked on|experience|done).{0,25}(?:infrastructure|systems?)|(?:infrastructure|systems?).{0,25}(?:build|built|made|created|experience|work|done)/i.test(current)) {
-    return ["workSystems"];
+    return ["capabilitySynthesis"];
   }
   if (/most (?:technically |technical )?(?:complex|substantial)|hardest technical|deepest technical/i.test(current)) {
-    return ["workSystems"];
+    return ["capabilitySynthesis"];
   }
   if (/what (?:has|did) (?:he|eirik) (?:actually )?(?:build|built|make|made|create|created)|what (?:systems?|products?|tools?) (?:has|did) (?:he|eirik) (?:actually )?(?:build|built|make|made|create|created)|has (?:he|eirik) built real products?|can (?:he|eirik) actually build/i.test(current)) {
-    return ["workSystems"];
+    return ["capabilitySynthesis"];
   }
   if (/did (?:he|eirik) work for (?:bittensor|opentensor)|was (?:his|eirik'?s) bittensor work paid|paid.{0,20}bittensor|bittensor.{0,20}(?:paid|compensated|employment)/i.test(current)) {
     return ["bittensor", "claimBoundaries"];
@@ -131,7 +140,7 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
     return ["dusd", "claimBoundaries"];
   }
 
-  let ranked = rules
+  const ranked = rules
     .map((rule, index) => ({ key: rule.key, score: score(current, rule), index }))
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score || a.index - b.index);

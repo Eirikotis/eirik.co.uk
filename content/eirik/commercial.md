@@ -2,7 +2,7 @@
 
 ## Product ownership
 
-Eirik has taken incomplete ideas through product definition, system requirements, prioritisation, implementation and iteration. Examples include independently building dusd.fun, defining and coordinating VOID's product architecture, shaping quantitative product workflows at One Click Labs and converting market questions into testable research infrastructure in AutoResearch.
+Eirik has taken incomplete ideas through product definition, system requirements, prioritisation, implementation and iteration. Examples include independently building live systems, defining and coordinating Bittensor credit-infrastructure product architecture, shaping quantitative product workflows at One Click Labs and converting market questions into testable research infrastructure.
 
 ## Commercial work
 
@@ -17,7 +17,7 @@ Eirik has taken incomplete ideas through product definition, system requirements
 
 At Gartner, Eirik's work generated more than $150,000 in potential contract value. Describe this as potential contract value, not confirmed closed revenue.
 
-At VOID, Eirik led investor and partner discussions and developed commercial materials. The venture did not complete a fundraise, so do not imply financing success.
+In his Bittensor credit-infrastructure work, Eirik led investor and partner discussions and developed commercial materials. The venture did not complete a fundraise, so do not imply financing success.
 
 ## Partnerships-role assessment
 

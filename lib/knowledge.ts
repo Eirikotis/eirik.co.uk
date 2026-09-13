@@ -3,10 +3,11 @@ import "server-only";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { getCapabilityEvidence } from "@/lib/evidence-graph";
 import { selectEvidenceKeys, type EvidenceKey } from "@/lib/evidence-router";
 
 const base = join(process.cwd(), "content", "eirik");
-const files: Record<EvidenceKey, string> = {
+const files: Record<Exclude<EvidenceKey, "capabilitySynthesis">, string> = {
   career: "career.md",
   bittensor: "bittensor.md",
   kpmg: "kpmg.md",
@@ -38,7 +39,12 @@ export function getCoreProfile() {
 
 export function getEvidence(question: string, recentUserQuestions: string[]) {
   const keys = selectEvidenceKeys(question, recentUserQuestions);
-  return keys.map((key) => ({ key, content: load(files[key]) }));
+  return keys.map((key) => ({
+    key,
+    content: key === "capabilitySynthesis"
+      ? getCapabilityEvidence(question, recentUserQuestions)
+      : load(files[key]),
+  }));
 }
 
 export function getContextMetrics(question: string, recentUserQuestions: string[] = []) {

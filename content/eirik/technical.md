@@ -21,12 +21,12 @@ Eirik is technically hands-on, but his depth varies by domain. Describe specific
 
 ## Systems judgement
 
-Eirik often works by connecting the product decision to the underlying system: data sources, incentives, execution paths, operating dependencies and failure states. Evidence includes transaction validation and recovery in dusd.fun, model and market-execution separation in AutoResearch, financial-process and data-flow analysis at KPMG, and product/risk architecture in VOID.
+Eirik often works by connecting the product decision to the underlying system: data sources, incentives, execution paths, operating dependencies and failure states. Evidence includes transaction validation and recovery in dusd.fun, model and market-execution separation in Bittensor quantitative research, financial-process and data-flow analysis at KPMG, and Bittensor credit product/risk architecture.
 
 ## Boundaries
 
 - Do not assume expertise in languages, cloud platforms or infrastructure not listed in the context.
-- Do not claim that Eirik personally wrote all VOID production software; he led product and coordinated engineering delivery.
+- Do not claim that Eirik personally wrote all Bittensor credit-protocol production software; he led product and coordinated engineering delivery.
 - Do not claim deployed profitable machine-learning alpha.
 - Do not equate working with technology-enabled controls at KPMG with software development at KPMG.
 - It is reasonable to describe Eirik as technically fluent, capable of building products and research systems, and comfortable working with engineers. Whether he fits a pure software-engineering role depends on the role's depth and stack.
