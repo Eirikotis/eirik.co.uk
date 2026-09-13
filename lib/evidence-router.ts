@@ -21,7 +21,7 @@ const rules: Rule[] = [
   { key: "oneClickLabs", terms: [/one click labs?|\bocl\b/i, /defi investment|portfolio optimi[sz]ation|monte carlo/i, /lending market|amm liquidity/i] },
   { key: "gartner", terms: [/gartner/i, /nordic market|prospecting|contract value/i] },
   { key: "dusd", terms: [/dusd/i, /solana/i, /burn infrastructure|supply analytics/i, /daily visitors?|on-chain product/i] },
-  { key: "education", terms: [/warwick|education|degree|university|accounting and finance/i, /\baca\b|icaew|exam/i, /scholarship|2:1|69%/i] },
+  { key: "education", terms: [/warwick|education|degree|university|accounting and finance/i, /\baca\b|icaew|\bexams?\b/i, /scholarship|2:1|69%/i] },
   { key: "technical", terms: [/can (?:he|eirik) code|coding|programming|software|engineer/i, /python|typescript|next\.?js|react|node\.?js|\bsql\b/i, /api|data pipeline|machine learning|backtest/i, /linux|vps|deployment|automation/i, /technical (?:background|ability|skills?)/i] },
   { key: "commercial", terms: [/partnership|business development|\bbd\b/i, /commercial|go-to-market|\bgtm\b|sales/i, /investor|partner|client-facing|stakeholder/i, /founder'?s associate|ceo office|strategy and operations/i] },
   { key: "career", terms: [/career|experience|chronology|timeline|résumé|resume|\bcv\b/i, /where has (?:he|eirik) worked|what has (?:he|eirik) worked on/i, /employer|employment|roles? has/i] },
@@ -29,7 +29,7 @@ const rules: Rule[] = [
 ];
 
 const broadOnly = /^(?:who is eirik|tell me about (?:eirik|him)|what is (?:eirik|he) like|what (?:interests|motivates) (?:eirik|him)|what(?:'s| is) (?:his|eirik'?s) (?:greatest |biggest )?weakness)\??$/i;
-const genericFollowUp = /^(?:what about (?:that|this|it|him)|tell me more|why|how so|go on|and\??|what else)\??$/i;
+const genericFollowUp = /^(?:what about (?:that|this|it|him)|tell me more|why|how so|go on|and\??|what else|(?:can|could|are) you (?:even )?(?:able to )?(?:give|provide).{0,60}(?:examples?|details?).*|(?:give|provide) (?:me )?(?:a |some )?(?:specific )?(?:examples?|details?).*)\??$/i;
 const implicitEirikProfessionalReference = /(?:my|your)\s+(?:professional\s+)?(?:background|experience|career|work history)/i;
 
 function score(text: string, rule: Rule) {
@@ -45,6 +45,17 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
   // Eirik's supplied professional history, not the anonymous visitor's.
   if (implicitEirikProfessionalReference.test(current)) {
     return ["career"];
+  }
+
+  if (/messy data|dirty data|data quality|inconsistent (?:data|formats?)|fragmented (?:data|datasets?)|incomplete (?:data|historical|history)|clean(?:ing|ed)? and normali[sz]/i.test(current)) {
+    return ["oneClickLabs", "bittensor"];
+  }
+
+  if (genericFollowUp.test(current) && recentUserQuestions.length) {
+    return selectEvidenceKeys(
+      recentUserQuestions[recentUserQuestions.length - 1],
+      recentUserQuestions.slice(0, -1),
+    );
   }
 
   // Explicit job titles and role-fit requests outrank incidental technology or
@@ -124,14 +135,6 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
     .map((rule, index) => ({ key: rule.key, score: score(current, rule), index }))
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score || a.index - b.index);
-
-  if (!ranked.length && genericFollowUp.test(current)) {
-    const prior = recentUserQuestions.slice(-2).join(" ");
-    ranked = rules
-      .map((rule, index) => ({ key: rule.key, score: score(prior, rule), index }))
-      .filter((item) => item.score > 0)
-      .sort((a, b) => b.score - a.score || a.index - b.index);
-  }
 
   return ranked.slice(0, 3).map((item) => item.key);
 }

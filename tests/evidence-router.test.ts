@@ -65,6 +65,11 @@ test("AI infrastructure partnerships questions combine the three strongest sourc
 test("short topical and generic follow-ups preserve routing context", () => {
   assert.deepEqual(selectEvidenceKeys("What about AI?", ["What did he do at KPMG?"]), ["bittensor"]);
   assert.deepEqual(selectEvidenceKeys("Tell me more", ["What has he done in Bittensor?"]), ["bittensor"]);
+  assert.deepEqual(selectEvidenceKeys("Tell me his best example of messy data"), ["oneClickLabs", "bittensor"]);
+  assert.deepEqual(
+    selectEvidenceKeys("Are you even able to give any specific examples...", ["Tell me his best example of messy data"]),
+    ["oneClickLabs", "bittensor"],
+  );
 });
 
 test("role questions retrieve a compact calibration plus function-specific evidence", () => {

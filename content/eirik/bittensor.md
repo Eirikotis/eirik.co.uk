@@ -47,6 +47,8 @@ The system included:
 - reproducible experiment outputs and deterministic evaluation;
 - bounded LLM-assisted workflows for proposing or implementing research improvements.
 
+The data problem was also concrete: the underlying network and subnet markets changed over time, so a usable historical panel required cleaning and validation plus explicit subnet identity and lifecycle handling. Eirik built a canonical market dataset and repeatable refresh pipeline so price, liquidity, flows, incentives and market-structure features remained comparable across prediction dates. This is a second strong data-quality example, but One Click Labs is the clearest answer when a visitor asks generally for his best example of "messy data".
+
 Eirik defined the research objective, designed the architecture and evaluation process, directed AI-assisted implementation, worked with Python and the data/model pipeline, compared research approaches, reviewed outputs and decided whether the evidence justified capital deployment.
 
 Human judgement remained responsible for objectives, architecture and deployment decisions. The LLM assisted with bounded proposals and implementation; tests, metrics and simulations provided the evidence. The infrastructure worked, but the results did not justify claiming stable or profitable deployed alpha.
