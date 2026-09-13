@@ -72,6 +72,10 @@ test("role questions retrieve a compact calibration plus function-specific evide
   assert.deepEqual(selectEvidenceKeys("Would he be good in a sales role?"), ["roleFit", "commercial", "gartner"]);
   assert.deepEqual(selectEvidenceKeys("What about operations management?"), ["roleFit", "commercial", "kpmg"]);
   assert.deepEqual(selectEvidenceKeys("Would Finance Manager suit him?"), ["roleFit", "kpmg", "education"]);
+  assert.deepEqual(
+    selectEvidenceKeys("Would he be a good fit for an Analyst, Capital Allocation role covering portfolio performance, investor reporting and SQL?"),
+    ["roleFit", "financialSystems", "kpmg"],
+  );
   assert.deepEqual(selectEvidenceKeys("Is Eirik a fit for a Finance Analyst role working with FP&A, SQL and the data team?"), ["roleFit", "kpmg", "technical"]);
   assert.deepEqual(
     selectEvidenceKeys("We built AI-native energy transaction infrastructure. Is Eirik good for our Finance Analyst role working with FP&A, SQL, reporting and the data team?"),

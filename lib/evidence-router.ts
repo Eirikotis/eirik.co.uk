@@ -58,6 +58,9 @@ export function selectEvidenceKeys(question: string, recentUserQuestions: string
   if (/finance analyst|financial analyst|\bfp&a\b|financial planning and analysis|commercial finance|finance business partner|financial performance|forecast variances?|finance.{0,30}(?:sql|data team|reporting tools?)/i.test(current)) {
     return ["roleFit", "kpmg", "technical"];
   }
+  if (/capital allocation|fund management|portfolio performance|investment performance|investor reporting/i.test(current) && /analyst|role|job|fit|suit/i.test(current)) {
+    return ["roleFit", "financialSystems", "kpmg"];
+  }
   if (/software engineer|software engineering|engineering role|research scientist/i.test(current)) {
     return ["roleFit", "technical"];
   }
